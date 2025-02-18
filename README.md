@@ -21,7 +21,7 @@
 
 - **Backend**: Java EE (JEE), Servlets, JSP  
 - **Frontend**: HTML, CSS, JavaScript  
-- **Database**: Oracle Database  
+- **Database**: Oracle Database (PLSQL)
 - **Architecture**: DAO (Data Access Object) Model  
 
 ## 🎯 DAO Model  
