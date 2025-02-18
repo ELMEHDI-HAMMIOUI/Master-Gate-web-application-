@@ -1,0 +1,1932 @@
+--------------------------------------------------------
+--  Fichier créé - lundi-octobre-14-2024   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table ADMIN
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."ADMIN" 
+   (	"ID" NUMBER(*,0), 
+	"EMAIL" VARCHAR2(50 BYTE), 
+	"PASSWORD" VARCHAR2(50 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table BLOCKEDRESPO
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."BLOCKEDRESPO" 
+   (	"ID_RESPO" NUMBER(*,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table CONDITION
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."CONDITION" 
+   (	"ID_CONDITION" NUMBER(*,0), 
+	"MAX_AGE" NUMBER(*,0), 
+	"MAX_ANNEE_ETUDE" NUMBER(*,0), 
+	"NOTE_MIN_SEMESTRE" NUMBER(4,2), 
+	"NOTE_SEUIL" NUMBER(4,2)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table CONVOCATION
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."CONVOCATION" 
+   (	"ID_CONVOCATION" NUMBER(*,0), 
+	"ID_INSCRIPTION" NUMBER(*,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table DOC
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."DOC" 
+   (	"ID_DOC" VARCHAR2(36 BYTE), 
+	"ID_MASTER" NUMBER, 
+	"ID_ETUDIANT" NUMBER, 
+	"DOC" BLOB
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" 
+ LOB ("DOC") STORE AS SECUREFILE (
+  TABLESPACE "USERS" ENABLE STORAGE IN ROW 4000 CHUNK 8192
+  NOCACHE LOGGING  NOCOMPRESS  KEEP_DUPLICATES 
+  STORAGE(INITIAL 262144 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)) ;
+--------------------------------------------------------
+--  DDL for Table ETUDIANT
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."ETUDIANT" 
+   (	"ID_ETUDIANT" NUMBER(*,0), 
+	"NOM" VARCHAR2(50 BYTE), 
+	"PRENOM" VARCHAR2(50 BYTE), 
+	"D_NAISS" DATE, 
+	"SEXE" VARCHAR2(10 BYTE), 
+	"TELE" VARCHAR2(20 BYTE), 
+	"EMAIL" VARCHAR2(30 BYTE), 
+	"PASSWORD" VARCHAR2(100 BYTE), 
+	"NATIONALITE" VARCHAR2(50 BYTE), 
+	"CIN" VARCHAR2(20 BYTE), 
+	"MASSAR" VARCHAR2(30 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table ETUDIANT_TOKENMAP
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."ETUDIANT_TOKENMAP" 
+   (	"TOKEN" VARCHAR2(255 BYTE), 
+	"ID_ETUDIANT" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table FACULTE
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."FACULTE" 
+   (	"ID_FACULTE" NUMBER(*,0), 
+	"NOM_FAC" VARCHAR2(150 BYTE), 
+	"SURNOM_FAC" VARCHAR2(30 BYTE), 
+	"LOGO_FAC" VARCHAR2(150 BYTE), 
+	"ID_UNIVERSITE" NUMBER(*,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table FILIERE_ADMET_MASTER
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."FILIERE_ADMET_MASTER" 
+   (	"ID_FAM" NUMBER(*,0), 
+	"ID_MASTER" NUMBER(*,0), 
+	"ID_FIL_LICENCE" NUMBER(*,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table FILIERE_LICENCE
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."FILIERE_LICENCE" 
+   (	"ID_FIL_LICENCE" NUMBER(*,0), 
+	"NOM_FIL" VARCHAR2(50 BYTE), 
+	"SURNOM_FIL" VARCHAR2(5 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table INFO_ACADEMIQUE
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."INFO_ACADEMIQUE" 
+   (	"ID_IA" NUMBER(*,0), 
+	"D_LICENCE" DATE, 
+	"D_BAC" DATE, 
+	"FIL_BAC" VARCHAR2(60 BYTE), 
+	"MOY_LICENCE" NUMBER(4,2), 
+	"MOY_BAC" NUMBER(4,2), 
+	"N_S1" NUMBER(4,2), 
+	"N_S2" NUMBER(4,2), 
+	"N_S3" NUMBER(4,2), 
+	"N_S4" NUMBER(4,2), 
+	"N_S5" NUMBER(4,2), 
+	"N_S6" NUMBER(4,2), 
+	"DOCUMENT" BLOB, 
+	"PHOTO" BLOB, 
+	"ID_FIL_LICENCE" NUMBER(*,0), 
+	"ID_ETUDIANT" NUMBER(*,0), 
+	"ID_FACULTE" NUMBER(*,0), 
+	"D_PR_INSCRIPTION" DATE
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" 
+ LOB ("DOCUMENT") STORE AS SECUREFILE (
+  TABLESPACE "USERS" ENABLE STORAGE IN ROW 4000 CHUNK 8192
+  NOCACHE LOGGING  NOCOMPRESS  KEEP_DUPLICATES 
+  STORAGE(INITIAL 262144 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)) 
+ LOB ("PHOTO") STORE AS SECUREFILE (
+  TABLESPACE "USERS" ENABLE STORAGE IN ROW 4000 CHUNK 8192
+  NOCACHE LOGGING  NOCOMPRESS  KEEP_DUPLICATES 
+  STORAGE(INITIAL 262144 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)) ;
+--------------------------------------------------------
+--  DDL for Table INSCRIPTION
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."INSCRIPTION" 
+   (	"ID_INSCRIPTION" NUMBER(*,0), 
+	"ID_MASTER" NUMBER(*,0), 
+	"ID_ETUDIANT" NUMBER(*,0), 
+	"D_INSCRIPTION" DATE
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table LISTE_ATTENTE
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."LISTE_ATTENTE" 
+   (	"ID_LA" NUMBER(*,0), 
+	"ID_INSCRIPTION" NUMBER(*,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table LISTE_FINALE
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."LISTE_FINALE" 
+   (	"ID_LF" NUMBER(*,0), 
+	"ID_INSCRIPTION" NUMBER(*,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table M_COMMENT
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."M_COMMENT" 
+   (	"ID_COMMENT" VARCHAR2(36 BYTE), 
+	"ID_MASTER" NUMBER, 
+	"ID_ETUDIANT" NUMBER, 
+	"CREATED_AT" DATE DEFAULT sysdate, 
+	"TXT" CLOB
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" 
+ LOB ("TXT") STORE AS SECUREFILE (
+  TABLESPACE "USERS" ENABLE STORAGE IN ROW 4000 CHUNK 8192
+  NOCACHE LOGGING  NOCOMPRESS  KEEP_DUPLICATES 
+  STORAGE(INITIAL 262144 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)) ;
+--------------------------------------------------------
+--  DDL for Table MASTER
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."MASTER" 
+   (	"ID_MASTER" NUMBER(*,0), 
+	"SPECIALITE" VARCHAR2(100 BYTE), 
+	"NOM_COORDINATEUR" VARCHAR2(50 BYTE), 
+	"D_DEBUT_INSCRIPTION" DATE, 
+	"D_FIN_INSCRIPTION" DATE, 
+	"D_AFF_PRESELECTION" DATE, 
+	"D_CONCOURS" DATE, 
+	"D_AFF_RESULTAT_CONCOURS" DATE, 
+	"LIEU_CONCOURS" VARCHAR2(300 BYTE), 
+	"INFORMATION" VARCHAR2(700 BYTE), 
+	"ID_RESPONSABLE" NUMBER(*,0), 
+	"ID_CONDITION" NUMBER(*,0), 
+	"DOCS_STRING" VARCHAR2(600 CHAR), 
+	"CONDITION" VARCHAR2(600 CHAR)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table MASTER_TOKENMAP
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."MASTER_TOKENMAP" 
+   (	"TOKEN" VARCHAR2(255 BYTE), 
+	"ID_MASTER" NUMBER
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table NOTIF
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."NOTIF" 
+   (	"ID_NOTIF" NUMBER, 
+	"MSG" VARCHAR2(300 BYTE), 
+	"NOTIF_DATE" DATE, 
+	"READED" CHAR(1 BYTE), 
+	"ID_TAG" NUMBER, 
+	"ID_MASTER" NUMBER, 
+	"ID_ETUDIANT" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table PRESELECTION
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."PRESELECTION" 
+   (	"ID_PS" NUMBER(*,0), 
+	"ID_INSCRIPTION" NUMBER(*,0), 
+	"SCORE" NUMBER(5,2)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table PUBLICATION
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."PUBLICATION" 
+   (	"ID_PUBLICATION" NUMBER(*,0), 
+	"ID_MASTER" NUMBER(*,0), 
+	"DATE_PUBLICATION" DATE, 
+	"TYPE_PUB" VARCHAR2(5 BYTE), 
+	"TITRE" VARCHAR2(600 BYTE), 
+	"SOUS_TITRE" VARCHAR2(600 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table REJECTED
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."REJECTED" 
+   (	"ID_INSCRIPTION" NUMBER(*,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table RESPONSABLE
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."RESPONSABLE" 
+   (	"ID_RESPONSABLE" NUMBER(*,0), 
+	"EMAIL" VARCHAR2(30 BYTE), 
+	"PASSWORD" VARCHAR2(30 BYTE), 
+	"ID_FACULTE" NUMBER(*,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table TAG
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."TAG" 
+   (	"ID_TAG" NUMBER, 
+	"TAG_NAME" VARCHAR2(30 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table TMP_CONVOCATION
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."TMP_CONVOCATION" 
+   (	"ID_CONVOCATION" NUMBER(*,0), 
+	"ID_INSCRIPTION" NUMBER(*,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table TMP_LISTE_ATTENTE
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."TMP_LISTE_ATTENTE" 
+   (	"ID_LA" NUMBER(*,0), 
+	"ID_INSCRIPTION" NUMBER(*,0), 
+	"ID_MASTER" NUMBER(*,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table TMP_LISTE_FINALE
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."TMP_LISTE_FINALE" 
+   (	"ID_LF" NUMBER(*,0), 
+	"ID_INSCRIPTION" NUMBER(*,0), 
+	"ID_MASTER" NUMBER(*,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table TMP_PRESELECTION
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."TMP_PRESELECTION" 
+   (	"ID_PS" NUMBER(*,0), 
+	"ID_INSCRIPTION" NUMBER(*,0), 
+	"SCORE" NUMBER(5,2), 
+	"ID_MASTER" NUMBER(*,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table UNIVERSITE
+--------------------------------------------------------
+
+  CREATE TABLE "MEHDI"."UNIVERSITE" 
+   (	"ID_UNIVERSITE" NUMBER(*,0), 
+	"NOM_UNI" VARCHAR2(150 BYTE), 
+	"VILLE" VARCHAR2(40 BYTE), 
+	"SURNOM_UNI" VARCHAR2(30 BYTE), 
+	"WEB_SITE" VARCHAR2(150 BYTE), 
+	"LOGO_UNI" VARCHAR2(200 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+REM INSERTING into MEHDI.ADMIN
+SET DEFINE OFF;
+Insert into MEHDI.ADMIN (ID,EMAIL,PASSWORD) values ('1','admin','admin');
+REM INSERTING into MEHDI.BLOCKEDRESPO
+SET DEFINE OFF;
+Insert into MEHDI.BLOCKEDRESPO (ID_RESPO) values ('16');
+Insert into MEHDI.BLOCKEDRESPO (ID_RESPO) values ('14');
+Insert into MEHDI.BLOCKEDRESPO (ID_RESPO) values ('17');
+REM INSERTING into MEHDI.CONDITION
+SET DEFINE OFF;
+Insert into MEHDI.CONDITION (ID_CONDITION,MAX_AGE,MAX_ANNEE_ETUDE,NOTE_MIN_SEMESTRE,NOTE_SEUIL) values ('240','21','4','10','16');
+Insert into MEHDI.CONDITION (ID_CONDITION,MAX_AGE,MAX_ANNEE_ETUDE,NOTE_MIN_SEMESTRE,NOTE_SEUIL) values ('242','50','6','5','10');
+Insert into MEHDI.CONDITION (ID_CONDITION,MAX_AGE,MAX_ANNEE_ETUDE,NOTE_MIN_SEMESTRE,NOTE_SEUIL) values ('241','25','6','12','12');
+Insert into MEHDI.CONDITION (ID_CONDITION,MAX_AGE,MAX_ANNEE_ETUDE,NOTE_MIN_SEMESTRE,NOTE_SEUIL) values ('243','26','7','12','10');
+Insert into MEHDI.CONDITION (ID_CONDITION,MAX_AGE,MAX_ANNEE_ETUDE,NOTE_MIN_SEMESTRE,NOTE_SEUIL) values ('239','99','6','10','12');
+Insert into MEHDI.CONDITION (ID_CONDITION,MAX_AGE,MAX_ANNEE_ETUDE,NOTE_MIN_SEMESTRE,NOTE_SEUIL) values ('244','30','10','11','10');
+Insert into MEHDI.CONDITION (ID_CONDITION,MAX_AGE,MAX_ANNEE_ETUDE,NOTE_MIN_SEMESTRE,NOTE_SEUIL) values ('245','40','9','10','10');
+Insert into MEHDI.CONDITION (ID_CONDITION,MAX_AGE,MAX_ANNEE_ETUDE,NOTE_MIN_SEMESTRE,NOTE_SEUIL) values ('246','21','3','10','12');
+Insert into MEHDI.CONDITION (ID_CONDITION,MAX_AGE,MAX_ANNEE_ETUDE,NOTE_MIN_SEMESTRE,NOTE_SEUIL) values ('237','21','3','12','12');
+Insert into MEHDI.CONDITION (ID_CONDITION,MAX_AGE,MAX_ANNEE_ETUDE,NOTE_MIN_SEMESTRE,NOTE_SEUIL) values ('238','50','3','10','12');
+REM INSERTING into MEHDI.CONVOCATION
+SET DEFINE OFF;
+Insert into MEHDI.CONVOCATION (ID_CONVOCATION,ID_INSCRIPTION) values ('202','141');
+Insert into MEHDI.CONVOCATION (ID_CONVOCATION,ID_INSCRIPTION) values ('201','15');
+Insert into MEHDI.CONVOCATION (ID_CONVOCATION,ID_INSCRIPTION) values ('204','161');
+REM INSERTING into MEHDI.DOC
+SET DEFINE OFF;
+Insert into MEHDI.DOC (ID_DOC,ID_MASTER,ID_ETUDIANT) values ('793eb7f9-b6ba-4e25-951d-4b44c856a320','278','30');
+Insert into MEHDI.DOC (ID_DOC,ID_MASTER,ID_ETUDIANT) values ('f6e64ab1-0933-4c49-bf1f-065d82abf064','277','31');
+Insert into MEHDI.DOC (ID_DOC,ID_MASTER,ID_ETUDIANT) values ('64c2d326-b74c-438e-b342-70ff08bdd8a9','278','34');
+Insert into MEHDI.DOC (ID_DOC,ID_MASTER,ID_ETUDIANT) values ('c26ea9af-1b4f-4c4d-98a7-f633d11013f0','277','33');
+Insert into MEHDI.DOC (ID_DOC,ID_MASTER,ID_ETUDIANT) values ('2d2156dc-5684-4452-b7c0-32dd13aa5001','278','33');
+REM INSERTING into MEHDI.ETUDIANT
+SET DEFINE OFF;
+Insert into MEHDI.ETUDIANT (ID_ETUDIANT,NOM,PRENOM,D_NAISS,SEXE,TELE,EMAIL,PASSWORD,NATIONALITE,CIN,MASSAR) values ('30','HAJIBA','RAIS',to_date('04-07-69','DD-MM-YY'),'female','0615708193','Hjiba@gmail.com','$2a$10$p56EddIoklf47WjTsOaDueGqrqq/82d9t48xuOmSGevBKT6xzxcM6','marocain','DV29315','M1365791');
+Insert into MEHDI.ETUDIANT (ID_ETUDIANT,NOM,PRENOM,D_NAISS,SEXE,TELE,EMAIL,PASSWORD,NATIONALITE,CIN,MASSAR) values ('31','MEHDI','HAMMIOU',to_date('20-07-24','DD-MM-YY'),'male','0615708193','Mehdi1@gmail.com','$2a$10$rmm8fpOExgiV3KkwnaELuuZEN.J4VqBNBj/cAEvlCvotSGtMx9KHi','algerien','DB27164','M136340564');
+Insert into MEHDI.ETUDIANT (ID_ETUDIANT,NOM,PRENOM,D_NAISS,SEXE,TELE,EMAIL,PASSWORD,NATIONALITE,CIN,MASSAR) values ('33','TAHA ','HAMMADATE ',to_date('01-02-03','DD-MM-YY'),'male','0615708193','Taha@gmail.com','$2a$10$C58Bm62ysbP4sKuVr8oI2.5JY5uPyFvMfUaX14wxL9C1kpVE7aCIm','marocain','DB15848','M123456');
+Insert into MEHDI.ETUDIANT (ID_ETUDIANT,NOM,PRENOM,D_NAISS,SEXE,TELE,EMAIL,PASSWORD,NATIONALITE,CIN,MASSAR) values ('18','Johnson','Bob',to_date('03-03-92','DD-MM-YY'),'Male','234567890','bob.johnson@example.com','securePass789','Canadian','23456789b','234b56789');
+Insert into MEHDI.ETUDIANT (ID_ETUDIANT,NOM,PRENOM,D_NAISS,SEXE,TELE,EMAIL,PASSWORD,NATIONALITE,CIN,MASSAR) values ('19','Williams','Carol',to_date('04-04-93','DD-MM-YY'),'Female','345678901','carol.williams@example.com','passCarol123','Australian','34567890c','345c67890');
+Insert into MEHDI.ETUDIANT (ID_ETUDIANT,NOM,PRENOM,D_NAISS,SEXE,TELE,EMAIL,PASSWORD,NATIONALITE,CIN,MASSAR) values ('20','Brown','David',to_date('05-05-94','DD-MM-YY'),'Male','456789012','david.brown@example.com','davidPass456','New Zealander','45678901d','456d78901');
+Insert into MEHDI.ETUDIANT (ID_ETUDIANT,NOM,PRENOM,D_NAISS,SEXE,TELE,EMAIL,PASSWORD,NATIONALITE,CIN,MASSAR) values ('21','Jones','Emma',to_date('06-06-95','DD-MM-YY'),'Female','567890123','emma.jones@example.com','emmaSecure123','Irish','56789012e','567e89012');
+Insert into MEHDI.ETUDIANT (ID_ETUDIANT,NOM,PRENOM,D_NAISS,SEXE,TELE,EMAIL,PASSWORD,NATIONALITE,CIN,MASSAR) values ('22','Taylor','Michael',to_date('07-07-96','DD-MM-YY'),'Male','678901234','michael.taylor@example.com','michaelPass789','American','67890123m','678m90123');
+Insert into MEHDI.ETUDIANT (ID_ETUDIANT,NOM,PRENOM,D_NAISS,SEXE,TELE,EMAIL,PASSWORD,NATIONALITE,CIN,MASSAR) values ('23','Harris','Sophia',to_date('08-08-97','DD-MM-YY'),'Female','789012345','sophia.harris@example.com','sophiaSecure456','Canadian','78901234s','789s01234');
+Insert into MEHDI.ETUDIANT (ID_ETUDIANT,NOM,PRENOM,D_NAISS,SEXE,TELE,EMAIL,PASSWORD,NATIONALITE,CIN,MASSAR) values ('24','Martinez','James',to_date('09-09-98','DD-MM-YY'),'Male','890123456','james.martinez@example.com','jamesPass123','Mexican','89012345j','890j12345');
+Insert into MEHDI.ETUDIANT (ID_ETUDIANT,NOM,PRENOM,D_NAISS,SEXE,TELE,EMAIL,PASSWORD,NATIONALITE,CIN,MASSAR) values ('25','Clark','Olivia',to_date('10-10-99','DD-MM-YY'),'Female','901234567','midouhammioui@gmail.com','oliviaSecure789','Australian','90123456o','901o23456');
+Insert into MEHDI.ETUDIANT (ID_ETUDIANT,NOM,PRENOM,D_NAISS,SEXE,TELE,EMAIL,PASSWORD,NATIONALITE,CIN,MASSAR) values ('26','Anderson','Liam',to_date('11-11-00','DD-MM-YY'),'Male','012345678','medhammioui2003@gmail.com','liamPass456','New Zealander','01234567l','012l34567');
+Insert into MEHDI.ETUDIANT (ID_ETUDIANT,NOM,PRENOM,D_NAISS,SEXE,TELE,EMAIL,PASSWORD,NATIONALITE,CIN,MASSAR) values ('1','Doe','John',to_date('01-01-90','DD-MM-YY'),'Male','123456789','midouhamioui@gmail.com','password123','American','12345678s','123s45890');
+Insert into MEHDI.ETUDIANT (ID_ETUDIANT,NOM,PRENOM,D_NAISS,SEXE,TELE,EMAIL,PASSWORD,NATIONALITE,CIN,MASSAR) values ('2','Smith','Alice',to_date('15-03-92','DD-MM-YY'),'Female','987654321','mosco@gmail.com','password123','Canadian','87654321C','54321678A');
+Insert into MEHDI.ETUDIANT (ID_ETUDIANT,NOM,PRENOM,D_NAISS,SEXE,TELE,EMAIL,PASSWORD,NATIONALITE,CIN,MASSAR) values ('3','Johnson','Robert',to_date('25-11-88','DD-MM-YY'),'Male','555666777','nightmaremaroc@gmail.com','securepass','British','76543210B','23456789B');
+Insert into MEHDI.ETUDIANT (ID_ETUDIANT,NOM,PRENOM,D_NAISS,SEXE,TELE,EMAIL,PASSWORD,NATIONALITE,CIN,MASSAR) values ('4','Williams','Emma',to_date('14-07-95','DD-MM-YY'),'Female','444555666','e.hammioui@edu.umi.ac.ma','mypassword','Australian','56789012A','34567890A');
+Insert into MEHDI.ETUDIANT (ID_ETUDIANT,NOM,PRENOM,D_NAISS,SEXE,TELE,EMAIL,PASSWORD,NATIONALITE,CIN,MASSAR) values ('5','Brown','James',to_date('05-12-93','DD-MM-YY'),'Male','123123123','midouihammioui@gmail.com','pass1234','American','321654987C','12345678C');
+Insert into MEHDI.ETUDIANT (ID_ETUDIANT,NOM,PRENOM,D_NAISS,SEXE,TELE,EMAIL,PASSWORD,NATIONALITE,CIN,MASSAR) values ('6','Martinez','Sofia',to_date('22-04-91','DD-MM-YY'),'Female','111222333','sofia.martinez@example.com','password456','Mexican','987654321M','87654321M');
+Insert into MEHDI.ETUDIANT (ID_ETUDIANT,NOM,PRENOM,D_NAISS,SEXE,TELE,EMAIL,PASSWORD,NATIONALITE,CIN,MASSAR) values ('29','HAMMIOUI ','ELMEHDI',to_date('21-01-03','DD-MM-YY'),'male','0615708193','Med@gmail.com','$2a$10$h1g6LDkHo9BwSX6QwS950uggYd92U6jgmEn0cdwiWTyTwoh0xMZOO','marocain','DB29164','M136240564');
+Insert into MEHDI.ETUDIANT (ID_ETUDIANT,NOM,PRENOM,D_NAISS,SEXE,TELE,EMAIL,PASSWORD,NATIONALITE,CIN,MASSAR) values ('34','HAMMADATE','THAA',to_date('07-02-04','DD-MM-YY'),'male','0612345678','adam123@GMAIL.COM','$2a$10$JbaEtX70RltTMHm64GJKzOZo0D5wyvEnFBQl99fyiUC.0D7zseFY6','marocain','DO123456','M135434567');
+REM INSERTING into MEHDI.ETUDIANT_TOKENMAP
+SET DEFINE OFF;
+Insert into MEHDI.ETUDIANT_TOKENMAP (TOKEN,ID_ETUDIANT) values ('c17c491f-3095-4963-99be-dce2c06eac77','33');
+Insert into MEHDI.ETUDIANT_TOKENMAP (TOKEN,ID_ETUDIANT) values ('d3c603e3-b6e7-4920-a2d6-7acac05d17b4','30');
+Insert into MEHDI.ETUDIANT_TOKENMAP (TOKEN,ID_ETUDIANT) values ('7e26bbc8-5ee5-43d4-b788-b5f13d16c09b','31');
+Insert into MEHDI.ETUDIANT_TOKENMAP (TOKEN,ID_ETUDIANT) values ('d3ab9803-311b-4d44-9fc6-6f9ffcf2b212','33');
+Insert into MEHDI.ETUDIANT_TOKENMAP (TOKEN,ID_ETUDIANT) values ('cfdfaa71-8fcc-4793-9824-3baf39e7e8e6','30');
+Insert into MEHDI.ETUDIANT_TOKENMAP (TOKEN,ID_ETUDIANT) values ('c9ead299-540e-4137-b48c-b2822fb50248','30');
+Insert into MEHDI.ETUDIANT_TOKENMAP (TOKEN,ID_ETUDIANT) values ('f646c8c6-3023-4292-94b2-453fceefbbfa','30');
+Insert into MEHDI.ETUDIANT_TOKENMAP (TOKEN,ID_ETUDIANT) values ('88635178-11f8-4ff8-9904-9a8c9bcbb0f9','30');
+Insert into MEHDI.ETUDIANT_TOKENMAP (TOKEN,ID_ETUDIANT) values ('43547a53-0a8d-41e0-9f9f-3e13d440e2ef','30');
+Insert into MEHDI.ETUDIANT_TOKENMAP (TOKEN,ID_ETUDIANT) values ('3a2f02cd-ed2c-45d2-ba0f-477e083685be','33');
+Insert into MEHDI.ETUDIANT_TOKENMAP (TOKEN,ID_ETUDIANT) values ('dcf941e0-c25e-4f8f-b418-97123e4605aa','30');
+Insert into MEHDI.ETUDIANT_TOKENMAP (TOKEN,ID_ETUDIANT) values ('af93e3b0-ec14-42b7-882c-ce2612fb0bc8','30');
+Insert into MEHDI.ETUDIANT_TOKENMAP (TOKEN,ID_ETUDIANT) values ('c0d47102-f1b7-4786-a6c4-4788a97cbde4','30');
+Insert into MEHDI.ETUDIANT_TOKENMAP (TOKEN,ID_ETUDIANT) values ('23081894-b738-47c4-a0c6-8161d116783c','30');
+Insert into MEHDI.ETUDIANT_TOKENMAP (TOKEN,ID_ETUDIANT) values ('8509a9a5-a0d0-459f-a889-b7113a3bc006','33');
+Insert into MEHDI.ETUDIANT_TOKENMAP (TOKEN,ID_ETUDIANT) values ('b1a6a880-2541-4ec7-acbc-7c16f3d23900','33');
+Insert into MEHDI.ETUDIANT_TOKENMAP (TOKEN,ID_ETUDIANT) values ('9a6e6029-eaf5-42bf-994d-39423baca7b0','33');
+Insert into MEHDI.ETUDIANT_TOKENMAP (TOKEN,ID_ETUDIANT) values ('dad0046d-260d-4309-8229-347f951a8fdb','33');
+REM INSERTING into MEHDI.FACULTE
+SET DEFINE OFF;
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('1','Faculté des sciences - Agadir','FSA','https://upload.wikimedia.org/wikipedia/commons/b/b0/Logo-UIZ.jpg','10');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('2','Faculté des sciences juridiques, économiques et sociales-Agadir - Agadir','FSJES','https://upload.wikimedia.org/wikipedia/commons/b/b0/Logo-UIZ.jpg','10');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('3','Faculté des sciences juridiques, économiques et sociales-Ait-Melloul - Ait Melloul','FSJESAM','https://upload.wikimedia.org/wikipedia/commons/b/b0/Logo-UIZ.jpg','10');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('4','Faculté des Sciences Appliquées - Ait Melloul','FSA','https://upload.wikimedia.org/wikipedia/commons/b/b0/Logo-UIZ.jpg','10');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('5','Faculté des Langues  Arts et Sciences Humaines - Ait Melloul','FLASH','https://upload.wikimedia.org/wikipedia/commons/b/b0/Logo-UIZ.jpg','10');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('6','Faculté des Lettres et des Sciences Humaines - Agadir','FLSHA','https://upload.wikimedia.org/wikipedia/commons/b/b0/Logo-UIZ.jpg','10');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('7','Faculté Chariâa - Ait Melloul','FCAM','https://upload.wikimedia.org/wikipedia/commons/b/b0/Logo-UIZ.jpg','10');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('8','Faculté Chariâa - Smara','FCS','https://upload.wikimedia.org/wikipedia/commons/b/b0/Logo-UIZ.jpg','10');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('9','Faculté des Sciences - Casablanca','FSK','https://www.uit.ac.ma/wp-content/uploads/2024/03/cropped-Ibn-Tofail-University_Logo_Vertical_Full-Color-and-white-01-120x120.png','9');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('10','Faculté des Lettres et Sciences Humaines - Casablanca','FLSHK','https://www.uit.ac.ma/wp-content/uploads/2024/03/cropped-Ibn-Tofail-University_Logo_Vertical_Full-Color-and-white-01-120x120.png','9');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('11','Faculté des sciences ?conomique, Juridiques et Sociales - Casablanca','FSJES','https://www.uit.ac.ma/wp-content/uploads/2024/03/cropped-Ibn-Tofail-University_Logo_Vertical_Full-Color-and-white-01-120x120.png','9');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('12','Faculté des sciences juridiques, économiques et sociales - Settat','FSJES','https://www.uh1.ac.ma/wp-content/uploads/2021/04/loogo.png','11');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('13','Faculté des sciences et techniques - Settat','FST','https://www.uh1.ac.ma/wp-content/uploads/2021/04/loogo.png','11');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('14','Faculté des Lettres et des Sciences Humaines - El Jadida','FLSH','https://www.ucd.ac.ma/wp-content/uploads/2021/10/logo_ucd-140x81.png','8');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('15','Faculté des Sciences - El Jadida','FSEJ','https://www.ucd.ac.ma/wp-content/uploads/2021/10/logo_ucd-140x81.png','8');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('16','Faculté des sciences juridiques, économiques et sociales - El Jadida','FSJESEJ','https://www.ucd.ac.ma/wp-content/uploads/2021/10/logo_ucd-140x81.png','8');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('17','Faculté des sciences juridiques, économiques et sociales - Souissi-Rabat','FSJES','http://www.um5.ac.ma/um5/sites/default/files/um5-wide.png','1');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('18','Faculté des sciences juridiques, économiques et sociales - Salé ','FSJES','http://www.um5.ac.ma/um5/sites/default/files/um5-wide.png','1');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('19','Faculté des sciences juridiques, économiques et sociales - Agdal-Rabat','FSJES','http://www.um5.ac.ma/um5/sites/default/files/um5-wide.png','1');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('20','Faculté des Lettres et des Sciences Humaines - Rabat','FLSH','http://www.um5.ac.ma/um5/sites/default/files/um5-wide.png','1');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('21','Faculté des Sciences Economiques - Rabat','FSE','http://www.um5.ac.ma/um5/sites/default/files/um5-wide.png','1');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('22','Faculté des Sciences - Rabat','FSR','http://www.um5.ac.ma/um5/sites/default/files/um5-wide.png','1');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('23','Faculté des Sciences - Ben MSik Casablanca','FSB','https://www.univh2c.ma/wp-content/uploads/2021/12/logo.jpg','2');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('24','Faculté des Sciences - Ain Chock Casablanca','FSAC','https://www.univh2c.ma/wp-content/uploads/2021/12/logo.jpg','2');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('25','Faculté des Sciences Juridiques, Economiques et Sociales - Mohammedia','FSJESM','https://www.univh2c.ma/wp-content/uploads/2021/12/logo.jpg','2');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('26','Faculté des Sciences Juridiques, Economiques et Sociales - Ain Sebâa Casablanca','FSJESAS','https://www.univh2c.ma/wp-content/uploads/2021/12/logo.jpg','2');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('27','Faculté des Sciences Juridiques, Economiques et Sociales - Ain Chock Casablanca','FSJESAC','https://www.univh2c.ma/wp-content/uploads/2021/12/logo.jpg','2');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('28','Faculté des Lettres et Sciences Humaines - Mohammedia','FLSHM','https://www.univh2c.ma/wp-content/uploads/2021/12/logo.jpg','2');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('29','Faculté des Lettres et Sciences Humaines - Ben MSik Casablanca','FLSHB','https://www.univh2c.ma/wp-content/uploads/2021/12/logo.jpg','2');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('30','Faculté des Lettres et Sciences Humaines - Ain Chock Casablanca','FLSHAC','https://www.univh2c.ma/wp-content/uploads/2021/12/logo.jpg','2');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('31','Faculté de Sciences et Techniques - Mohammedia','FST','https://www.univh2c.ma/wp-content/uploads/2021/12/logo.jpg','2');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('32','Faculté des Sciences Fès','FSF','https://www.usmba.ac.ma/~usmba2/wp-content/uploads/2019/06/usmba_90h.png','3');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('33','Faculté des Lettres et des Sciences Humaines - Fès-Sais','FLSHF','https://www.usmba.ac.ma/~usmba2/wp-content/uploads/2019/06/usmba_90h.png','3');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('34','Faculté des Sciences Juridiques, ?conomiques et Sociales - Fès-Dhar El Mehraz','SJESF','https://www.usmba.ac.ma/~usmba2/wp-content/uploads/2019/06/usmba_90h.png','3');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('35','Faculté des Sciences Juridiques ?conomiques et Sociales - Oujda','SJESO','https://www.ump.ma/assets/logo.webp','4');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('36','Faculté des Sciences - Oujda','FSO','https://www.ump.ma/assets/logo.webp','4');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('37','Faculté des Sciences et Techniques - Alhoceima','FSTAH','https://www.ump.ma/assets/logo.webp','4');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('38','Faculté des sciences - Semlalia','FSS','https://www.uca.ma/public/website/theme-3/images/logo-dark.png','5');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('39','Faculté des lettres et des sciences humaines','FLSHCA','https://www.uca.ma/public/website/theme-3/images/logo-dark.png','5');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('40','Faculté des sciences et techniques','FSTCA','https://www.uca.ma/public/website/theme-3/images/logo-dark.png','5');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('41','Faculté des Sciences - Meknès','FSM','https://www.umi.ac.ma/wp-content/themes/umi/images/logo.png','6');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('42','Faculté des Sciences Juridiques, ?conomiques et Sociales - Meknès','FSJESM','https://www.umi.ac.ma/wp-content/themes/umi/images/logo.png','6');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('43','Faculté des Sciences et Techniques - Errachidia','FSTE','https://www.umi.ac.ma/wp-content/themes/umi/images/logo.png','6');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('44','Faculté des lettres et des sciences humaines - Martil','FLSHM','https://www.uae.ac.ma/sites/default/files/logo.png','7');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('45','Faculté des sciences - Tanger ','FS','https://www.uae.ac.ma/sites/default/files/logo.png','7');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('46','Faculté des sciences juridiques, économiques et sociales - Tanger','FSJEST','https://www.uae.ac.ma/sites/default/files/logo.png','7');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('47','Faculté des sciences et techniques - Tanger','FSTT','https://www.uae.ac.ma/sites/default/files/logo.png','7');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('48','Faculté des lettres et des sciences humaines - Béni Mellal','FLSHBM','https://www.usms.ac.ma/sites/default/files/logo_usms_v.fw_.png','12');
+Insert into MEHDI.FACULTE (ID_FACULTE,NOM_FAC,SURNOM_FAC,LOGO_FAC,ID_UNIVERSITE) values ('49','Faculté des sciences et techniques - Béni Mellal','FSTBM','https://www.usms.ac.ma/sites/default/files/logo_usms_v.fw_.png','12');
+REM INSERTING into MEHDI.FILIERE_ADMET_MASTER
+SET DEFINE OFF;
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('422','280','2');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('418','279','1');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('423','280','3');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('419','279','2');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('420','279','4');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('421','280','1');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('424','280','4');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('425','280','5');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('426','280','6');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('427','280','7');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('428','280','8');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('429','280','9');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('430','280','10');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('431','280','11');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('432','280','12');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('433','280','13');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('434','280','14');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('435','280','15');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('436','280','16');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('437','280','17');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('438','280','18');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('439','280','19');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('440','280','20');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('441','280','21');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('442','280','22');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('443','281','15');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('444','281','16');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('445','281','17');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('446','282','1');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('447','282','2');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('448','282','3');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('449','283','4');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('450','283','5');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('451','284','20');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('415','276','1');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('416','277','2');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('452','284','21');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('453','284','22');
+Insert into MEHDI.FILIERE_ADMET_MASTER (ID_FAM,ID_MASTER,ID_FIL_LICENCE) values ('454','285','1');
+REM INSERTING into MEHDI.FILIERE_LICENCE
+SET DEFINE OFF;
+Insert into MEHDI.FILIERE_LICENCE (ID_FIL_LICENCE,NOM_FIL,SURNOM_FIL) values ('1','Sciences Mathématiques et applications','SMA');
+Insert into MEHDI.FILIERE_LICENCE (ID_FIL_LICENCE,NOM_FIL,SURNOM_FIL) values ('2','Sciences Mathématiques et informatique','SMI');
+Insert into MEHDI.FILIERE_LICENCE (ID_FIL_LICENCE,NOM_FIL,SURNOM_FIL) values ('3','Sciences de la matière Chimie','SMC');
+Insert into MEHDI.FILIERE_LICENCE (ID_FIL_LICENCE,NOM_FIL,SURNOM_FIL) values ('4','Sciences de la matière Physique','SMP');
+Insert into MEHDI.FILIERE_LICENCE (ID_FIL_LICENCE,NOM_FIL,SURNOM_FIL) values ('5','Sciences de la terre et de l univers','STU');
+Insert into MEHDI.FILIERE_LICENCE (ID_FIL_LICENCE,NOM_FIL,SURNOM_FIL) values ('6','GéniSciences de la vie','SV');
+Insert into MEHDI.FILIERE_LICENCE (ID_FIL_LICENCE,NOM_FIL,SURNOM_FIL) values ('7','Droit Arabe','DA');
+Insert into MEHDI.FILIERE_LICENCE (ID_FIL_LICENCE,NOM_FIL,SURNOM_FIL) values ('8','Droit Français','DF');
+Insert into MEHDI.FILIERE_LICENCE (ID_FIL_LICENCE,NOM_FIL,SURNOM_FIL) values ('9','économie et Gestion','EG');
+Insert into MEHDI.FILIERE_LICENCE (ID_FIL_LICENCE,NOM_FIL,SURNOM_FIL) values ('10','Biologie végétale appliquée','BVA');
+Insert into MEHDI.FILIERE_LICENCE (ID_FIL_LICENCE,NOM_FIL,SURNOM_FIL) values ('11','Chimie fondamentale et appliqué','CFA');
+Insert into MEHDI.FILIERE_LICENCE (ID_FIL_LICENCE,NOM_FIL,SURNOM_FIL) values ('12','Géoscience appliquée','GA');
+Insert into MEHDI.FILIERE_LICENCE (ID_FIL_LICENCE,NOM_FIL,SURNOM_FIL) values ('13','Mathématiques appliquées','MA');
+Insert into MEHDI.FILIERE_LICENCE (ID_FIL_LICENCE,NOM_FIL,SURNOM_FIL) values ('14','?tudes islamiques','EI');
+Insert into MEHDI.FILIERE_LICENCE (ID_FIL_LICENCE,NOM_FIL,SURNOM_FIL) values ('15','Histoire et civilisation','HC');
+Insert into MEHDI.FILIERE_LICENCE (ID_FIL_LICENCE,NOM_FIL,SURNOM_FIL) values ('16','Géographie','GEO');
+Insert into MEHDI.FILIERE_LICENCE (ID_FIL_LICENCE,NOM_FIL,SURNOM_FIL) values ('17','?tudes françaises','EF');
+Insert into MEHDI.FILIERE_LICENCE (ID_FIL_LICENCE,NOM_FIL,SURNOM_FIL) values ('18','?tudes arabes','EAR');
+Insert into MEHDI.FILIERE_LICENCE (ID_FIL_LICENCE,NOM_FIL,SURNOM_FIL) values ('19','?tudes anglaises','EAN');
+Insert into MEHDI.FILIERE_LICENCE (ID_FIL_LICENCE,NOM_FIL,SURNOM_FIL) values ('20','Tourisme et communication','TC');
+Insert into MEHDI.FILIERE_LICENCE (ID_FIL_LICENCE,NOM_FIL,SURNOM_FIL) values ('21','Sociologie ','SOCIO');
+Insert into MEHDI.FILIERE_LICENCE (ID_FIL_LICENCE,NOM_FIL,SURNOM_FIL) values ('22','Phylosophie','PHILO');
+REM INSERTING into MEHDI.INFO_ACADEMIQUE
+SET DEFINE OFF;
+Insert into MEHDI.INFO_ACADEMIQUE (ID_IA,D_LICENCE,D_BAC,FIL_BAC,MOY_LICENCE,MOY_BAC,N_S1,N_S2,N_S3,N_S4,N_S5,N_S6,ID_FIL_LICENCE,ID_ETUDIANT,ID_FACULTE,D_PR_INSCRIPTION) values ('27',to_date('31-07-24','DD-MM-YY'),to_date('02-08-24','DD-MM-YY'),'Physuc','10','12','19','12','10','13','15','17','2','30','1',to_date('19-07-24','DD-MM-YY'));
+Insert into MEHDI.INFO_ACADEMIQUE (ID_IA,D_LICENCE,D_BAC,FIL_BAC,MOY_LICENCE,MOY_BAC,N_S1,N_S2,N_S3,N_S4,N_S5,N_S6,ID_FIL_LICENCE,ID_ETUDIANT,ID_FACULTE,D_PR_INSCRIPTION) values ('28',to_date('23-07-24','DD-MM-YY'),to_date('26-07-24','DD-MM-YY'),'pc','19','19','19','19','19','19','19','19','1','31','1',to_date('13-07-24','DD-MM-YY'));
+Insert into MEHDI.INFO_ACADEMIQUE (ID_IA,D_LICENCE,D_BAC,FIL_BAC,MOY_LICENCE,MOY_BAC,N_S1,N_S2,N_S3,N_S4,N_S5,N_S6,ID_FIL_LICENCE,ID_ETUDIANT,ID_FACULTE,D_PR_INSCRIPTION) values ('30',to_date('10-08-24','DD-MM-YY'),to_date('09-07-24','DD-MM-YY'),'Phisycs','12','12','12','19','15','13','13','10','1','33','1',to_date('23-07-24','DD-MM-YY'));
+Insert into MEHDI.INFO_ACADEMIQUE (ID_IA,D_LICENCE,D_BAC,FIL_BAC,MOY_LICENCE,MOY_BAC,N_S1,N_S2,N_S3,N_S4,N_S5,N_S6,ID_FIL_LICENCE,ID_ETUDIANT,ID_FACULTE,D_PR_INSCRIPTION) values ('16',to_date('03-03-12','DD-MM-YY'),to_date('03-03-10','DD-MM-YY'),'Commerce','8,2','8,4','7,8','8,1','7,9','8,3','8','8,4','3','18','3',to_date('10-10-18','DD-MM-YY'));
+Insert into MEHDI.INFO_ACADEMIQUE (ID_IA,D_LICENCE,D_BAC,FIL_BAC,MOY_LICENCE,MOY_BAC,N_S1,N_S2,N_S3,N_S4,N_S5,N_S6,ID_FIL_LICENCE,ID_ETUDIANT,ID_FACULTE,D_PR_INSCRIPTION) values ('17',to_date('04-04-13','DD-MM-YY'),to_date('04-04-11','DD-MM-YY'),'Engineering','8,7','8,9','8,5','8,6','8,3','8,8','8,7','8,9','4','19','4',to_date('15-11-17','DD-MM-YY'));
+Insert into MEHDI.INFO_ACADEMIQUE (ID_IA,D_LICENCE,D_BAC,FIL_BAC,MOY_LICENCE,MOY_BAC,N_S1,N_S2,N_S3,N_S4,N_S5,N_S6,ID_FIL_LICENCE,ID_ETUDIANT,ID_FACULTE,D_PR_INSCRIPTION) values ('18',to_date('05-05-14','DD-MM-YY'),to_date('05-05-12','DD-MM-YY'),'Medicine','9','8,6','8,2','8,9','8,5','8,8','9,1','9,2','5','20','5',to_date('20-08-16','DD-MM-YY'));
+Insert into MEHDI.INFO_ACADEMIQUE (ID_IA,D_LICENCE,D_BAC,FIL_BAC,MOY_LICENCE,MOY_BAC,N_S1,N_S2,N_S3,N_S4,N_S5,N_S6,ID_FIL_LICENCE,ID_ETUDIANT,ID_FACULTE,D_PR_INSCRIPTION) values ('19',to_date('06-06-15','DD-MM-YY'),to_date('06-06-13','DD-MM-YY'),'Law','8,4','8,7','8','8,3','8,1','8,6','8,4','8,8','6','21','6',to_date('25-07-15','DD-MM-YY'));
+Insert into MEHDI.INFO_ACADEMIQUE (ID_IA,D_LICENCE,D_BAC,FIL_BAC,MOY_LICENCE,MOY_BAC,N_S1,N_S2,N_S3,N_S4,N_S5,N_S6,ID_FIL_LICENCE,ID_ETUDIANT,ID_FACULTE,D_PR_INSCRIPTION) values ('20',to_date('07-07-16','DD-MM-YY'),to_date('07-07-14','DD-MM-YY'),'Computer Science','9,1','8,8','8,7','8,9','9','8,8','9,2','9,1','7','22','7',to_date('01-01-19','DD-MM-YY'));
+Insert into MEHDI.INFO_ACADEMIQUE (ID_IA,D_LICENCE,D_BAC,FIL_BAC,MOY_LICENCE,MOY_BAC,N_S1,N_S2,N_S3,N_S4,N_S5,N_S6,ID_FIL_LICENCE,ID_ETUDIANT,ID_FACULTE,D_PR_INSCRIPTION) values ('21',to_date('08-08-17','DD-MM-YY'),to_date('08-08-15','DD-MM-YY'),'Mathematics','8,6','8,4','8,1','8,3','8,2','8,5','8,7','8,9','8','23','8',to_date('15-05-18','DD-MM-YY'));
+Insert into MEHDI.INFO_ACADEMIQUE (ID_IA,D_LICENCE,D_BAC,FIL_BAC,MOY_LICENCE,MOY_BAC,N_S1,N_S2,N_S3,N_S4,N_S5,N_S6,ID_FIL_LICENCE,ID_ETUDIANT,ID_FACULTE,D_PR_INSCRIPTION) values ('22',to_date('09-09-18','DD-MM-YY'),to_date('09-09-16','DD-MM-YY'),'Physics','8,3','8,5','8','8,2','8,4','8,3','8,5','8,6','9','24','9',to_date('20-02-17','DD-MM-YY'));
+Insert into MEHDI.INFO_ACADEMIQUE (ID_IA,D_LICENCE,D_BAC,FIL_BAC,MOY_LICENCE,MOY_BAC,N_S1,N_S2,N_S3,N_S4,N_S5,N_S6,ID_FIL_LICENCE,ID_ETUDIANT,ID_FACULTE,D_PR_INSCRIPTION) values ('23',to_date('10-10-19','DD-MM-YY'),to_date('10-10-17','DD-MM-YY'),'Chemistry','8,9','8,7','8,4','8,6','8,5','8,8','8,9','9','10','25','10',to_date('30-09-16','DD-MM-YY'));
+Insert into MEHDI.INFO_ACADEMIQUE (ID_IA,D_LICENCE,D_BAC,FIL_BAC,MOY_LICENCE,MOY_BAC,N_S1,N_S2,N_S3,N_S4,N_S5,N_S6,ID_FIL_LICENCE,ID_ETUDIANT,ID_FACULTE,D_PR_INSCRIPTION) values ('1',to_date('01-01-10','DD-MM-YY'),to_date('01-01-08','DD-MM-YY'),'Science','8,5','8,5','7,5','8,5','7,5','8,5','7,5','8,5','1','1','1',to_date('01-01-90','DD-MM-YY'));
+Insert into MEHDI.INFO_ACADEMIQUE (ID_IA,D_LICENCE,D_BAC,FIL_BAC,MOY_LICENCE,MOY_BAC,N_S1,N_S2,N_S3,N_S4,N_S5,N_S6,ID_FIL_LICENCE,ID_ETUDIANT,ID_FACULTE,D_PR_INSCRIPTION) values ('2',to_date('01-06-12','DD-MM-YY'),to_date('01-06-10','DD-MM-YY'),'Mathematics','7,8','8,2','7,7','8,1','7,6','8','7,5','8,3','2','2','3',to_date('15-03-92','DD-MM-YY'));
+Insert into MEHDI.INFO_ACADEMIQUE (ID_IA,D_LICENCE,D_BAC,FIL_BAC,MOY_LICENCE,MOY_BAC,N_S1,N_S2,N_S3,N_S4,N_S5,N_S6,ID_FIL_LICENCE,ID_ETUDIANT,ID_FACULTE,D_PR_INSCRIPTION) values ('3',to_date('20-05-09','DD-MM-YY'),to_date('20-05-07','DD-MM-YY'),'Engineering','9','8,7','8,9','8,8','8,7','8,6','8,5','8,4','3','3','4',to_date('25-11-88','DD-MM-YY'));
+Insert into MEHDI.INFO_ACADEMIQUE (ID_IA,D_LICENCE,D_BAC,FIL_BAC,MOY_LICENCE,MOY_BAC,N_S1,N_S2,N_S3,N_S4,N_S5,N_S6,ID_FIL_LICENCE,ID_ETUDIANT,ID_FACULTE,D_PR_INSCRIPTION) values ('4',to_date('25-08-14','DD-MM-YY'),to_date('25-08-12','DD-MM-YY'),'Literature','8,3','8,5','8,1','8,4','8,2','8,6','8','8,7','4','4','5',to_date('14-07-95','DD-MM-YY'));
+Insert into MEHDI.INFO_ACADEMIQUE (ID_IA,D_LICENCE,D_BAC,FIL_BAC,MOY_LICENCE,MOY_BAC,N_S1,N_S2,N_S3,N_S4,N_S5,N_S6,ID_FIL_LICENCE,ID_ETUDIANT,ID_FACULTE,D_PR_INSCRIPTION) values ('5',to_date('30-07-13','DD-MM-YY'),to_date('30-07-11','DD-MM-YY'),'Physics','8','8,1','8,2','8,3','8,4','8,5','8,6','8,7','5','5','6',to_date('05-12-93','DD-MM-YY'));
+Insert into MEHDI.INFO_ACADEMIQUE (ID_IA,D_LICENCE,D_BAC,FIL_BAC,MOY_LICENCE,MOY_BAC,N_S1,N_S2,N_S3,N_S4,N_S5,N_S6,ID_FIL_LICENCE,ID_ETUDIANT,ID_FACULTE,D_PR_INSCRIPTION) values ('6',to_date('15-05-11','DD-MM-YY'),to_date('15-05-09','DD-MM-YY'),'Chemistry','8,4','8,3','8,2','8,1','8','7,9','7,8','7,7','6','6','7',to_date('22-04-91','DD-MM-YY'));
+Insert into MEHDI.INFO_ACADEMIQUE (ID_IA,D_LICENCE,D_BAC,FIL_BAC,MOY_LICENCE,MOY_BAC,N_S1,N_S2,N_S3,N_S4,N_S5,N_S6,ID_FIL_LICENCE,ID_ETUDIANT,ID_FACULTE,D_PR_INSCRIPTION) values ('26',to_date('24-07-24','DD-MM-YY'),to_date('21-07-24','DD-MM-YY'),'PC','12','12','12','12','12','12','12','12','4','29','1',to_date('15-07-24','DD-MM-YY'));
+Insert into MEHDI.INFO_ACADEMIQUE (ID_IA,D_LICENCE,D_BAC,FIL_BAC,MOY_LICENCE,MOY_BAC,N_S1,N_S2,N_S3,N_S4,N_S5,N_S6,ID_FIL_LICENCE,ID_ETUDIANT,ID_FACULTE,D_PR_INSCRIPTION) values ('31',to_date('15-04-24','DD-MM-YY'),to_date('07-12-18','DD-MM-YY'),'VF','14','13','15','16','17','16','16','16','1','34','4',to_date('02-06-20','DD-MM-YY'));
+REM INSERTING into MEHDI.INSCRIPTION
+SET DEFINE OFF;
+Insert into MEHDI.INSCRIPTION (ID_INSCRIPTION,ID_MASTER,ID_ETUDIANT,D_INSCRIPTION) values ('141','277','30',to_date('14-07-24','DD-MM-YY'));
+Insert into MEHDI.INSCRIPTION (ID_INSCRIPTION,ID_MASTER,ID_ETUDIANT,D_INSCRIPTION) values ('142','277','31',to_date('14-07-24','DD-MM-YY'));
+Insert into MEHDI.INSCRIPTION (ID_INSCRIPTION,ID_MASTER,ID_ETUDIANT,D_INSCRIPTION) values ('182','278','34',to_date('15-07-24','DD-MM-YY'));
+Insert into MEHDI.INSCRIPTION (ID_INSCRIPTION,ID_MASTER,ID_ETUDIANT,D_INSCRIPTION) values ('1','277','1',to_date('14-07-24','DD-MM-YY'));
+Insert into MEHDI.INSCRIPTION (ID_INSCRIPTION,ID_MASTER,ID_ETUDIANT,D_INSCRIPTION) values ('2','277','2',to_date('14-07-24','DD-MM-YY'));
+Insert into MEHDI.INSCRIPTION (ID_INSCRIPTION,ID_MASTER,ID_ETUDIANT,D_INSCRIPTION) values ('3','277','3',to_date('14-07-24','DD-MM-YY'));
+Insert into MEHDI.INSCRIPTION (ID_INSCRIPTION,ID_MASTER,ID_ETUDIANT,D_INSCRIPTION) values ('4','277','4',to_date('14-07-24','DD-MM-YY'));
+Insert into MEHDI.INSCRIPTION (ID_INSCRIPTION,ID_MASTER,ID_ETUDIANT,D_INSCRIPTION) values ('5','277','5',to_date('14-07-24','DD-MM-YY'));
+Insert into MEHDI.INSCRIPTION (ID_INSCRIPTION,ID_MASTER,ID_ETUDIANT,D_INSCRIPTION) values ('6','277','6',to_date('14-07-24','DD-MM-YY'));
+Insert into MEHDI.INSCRIPTION (ID_INSCRIPTION,ID_MASTER,ID_ETUDIANT,D_INSCRIPTION) values ('7','277','18',to_date('14-07-24','DD-MM-YY'));
+Insert into MEHDI.INSCRIPTION (ID_INSCRIPTION,ID_MASTER,ID_ETUDIANT,D_INSCRIPTION) values ('8','277','19',to_date('14-07-24','DD-MM-YY'));
+Insert into MEHDI.INSCRIPTION (ID_INSCRIPTION,ID_MASTER,ID_ETUDIANT,D_INSCRIPTION) values ('9','277','20',to_date('14-07-24','DD-MM-YY'));
+Insert into MEHDI.INSCRIPTION (ID_INSCRIPTION,ID_MASTER,ID_ETUDIANT,D_INSCRIPTION) values ('10','277','21',to_date('14-07-24','DD-MM-YY'));
+Insert into MEHDI.INSCRIPTION (ID_INSCRIPTION,ID_MASTER,ID_ETUDIANT,D_INSCRIPTION) values ('12','277','22',to_date('14-07-24','DD-MM-YY'));
+Insert into MEHDI.INSCRIPTION (ID_INSCRIPTION,ID_MASTER,ID_ETUDIANT,D_INSCRIPTION) values ('13','277','23',to_date('14-07-24','DD-MM-YY'));
+Insert into MEHDI.INSCRIPTION (ID_INSCRIPTION,ID_MASTER,ID_ETUDIANT,D_INSCRIPTION) values ('14','277','24',to_date('14-07-24','DD-MM-YY'));
+Insert into MEHDI.INSCRIPTION (ID_INSCRIPTION,ID_MASTER,ID_ETUDIANT,D_INSCRIPTION) values ('15','277','25',to_date('14-07-24','DD-MM-YY'));
+Insert into MEHDI.INSCRIPTION (ID_INSCRIPTION,ID_MASTER,ID_ETUDIANT,D_INSCRIPTION) values ('16','277','26',to_date('14-07-24','DD-MM-YY'));
+Insert into MEHDI.INSCRIPTION (ID_INSCRIPTION,ID_MASTER,ID_ETUDIANT,D_INSCRIPTION) values ('161','277','33',to_date('15-07-24','DD-MM-YY'));
+Insert into MEHDI.INSCRIPTION (ID_INSCRIPTION,ID_MASTER,ID_ETUDIANT,D_INSCRIPTION) values ('181','278','33',to_date('15-07-24','DD-MM-YY'));
+REM INSERTING into MEHDI.LISTE_ATTENTE
+SET DEFINE OFF;
+Insert into MEHDI.LISTE_ATTENTE (ID_LA,ID_INSCRIPTION) values ('556','6');
+Insert into MEHDI.LISTE_ATTENTE (ID_LA,ID_INSCRIPTION) values ('557','14');
+Insert into MEHDI.LISTE_ATTENTE (ID_LA,ID_INSCRIPTION) values ('558','161');
+Insert into MEHDI.LISTE_ATTENTE (ID_LA,ID_INSCRIPTION) values ('559','15');
+Insert into MEHDI.LISTE_ATTENTE (ID_LA,ID_INSCRIPTION) values ('560','141');
+Insert into MEHDI.LISTE_ATTENTE (ID_LA,ID_INSCRIPTION) values ('561','12');
+Insert into MEHDI.LISTE_ATTENTE (ID_LA,ID_INSCRIPTION) values ('562','142');
+Insert into MEHDI.LISTE_ATTENTE (ID_LA,ID_INSCRIPTION) values ('563','13');
+REM INSERTING into MEHDI.LISTE_FINALE
+SET DEFINE OFF;
+Insert into MEHDI.LISTE_FINALE (ID_LF,ID_INSCRIPTION) values ('1402','3');
+Insert into MEHDI.LISTE_FINALE (ID_LF,ID_INSCRIPTION) values ('1403','1');
+Insert into MEHDI.LISTE_FINALE (ID_LF,ID_INSCRIPTION) values ('1404','2');
+Insert into MEHDI.LISTE_FINALE (ID_LF,ID_INSCRIPTION) values ('1405','7');
+Insert into MEHDI.LISTE_FINALE (ID_LF,ID_INSCRIPTION) values ('1406','8');
+Insert into MEHDI.LISTE_FINALE (ID_LF,ID_INSCRIPTION) values ('1407','4');
+Insert into MEHDI.LISTE_FINALE (ID_LF,ID_INSCRIPTION) values ('1408','9');
+Insert into MEHDI.LISTE_FINALE (ID_LF,ID_INSCRIPTION) values ('1409','16');
+Insert into MEHDI.LISTE_FINALE (ID_LF,ID_INSCRIPTION) values ('1410','5');
+Insert into MEHDI.LISTE_FINALE (ID_LF,ID_INSCRIPTION) values ('1411','10');
+Insert into MEHDI.LISTE_FINALE (ID_LF,ID_INSCRIPTION) values ('1401','181');
+REM INSERTING into MEHDI.M_COMMENT
+SET DEFINE OFF;
+Insert into MEHDI.M_COMMENT (ID_COMMENT,ID_MASTER,ID_ETUDIANT,CREATED_AT) values ('e2367cc4-a1da-43ac-bcd5-fe49776fd8d3','277','31',to_date('14-07-24','DD-MM-YY'));
+Insert into MEHDI.M_COMMENT (ID_COMMENT,ID_MASTER,ID_ETUDIANT,CREATED_AT) values ('e1cfe40e-cc19-4cc2-a22e-4a014b493ab2','278','30',to_date('14-07-24','DD-MM-YY'));
+Insert into MEHDI.M_COMMENT (ID_COMMENT,ID_MASTER,ID_ETUDIANT,CREATED_AT) values ('7267f7cf-d9fc-405c-af55-931045a2148c','278','30',to_date('14-07-24','DD-MM-YY'));
+Insert into MEHDI.M_COMMENT (ID_COMMENT,ID_MASTER,ID_ETUDIANT,CREATED_AT) values ('5f56d6fd-8142-4dd2-8244-87fbe2975b0f','278','34',to_date('15-07-24','DD-MM-YY'));
+REM INSERTING into MEHDI.MASTER
+SET DEFINE OFF;
+Insert into MEHDI.MASTER (ID_MASTER,SPECIALITE,NOM_COORDINATEUR,D_DEBUT_INSCRIPTION,D_FIN_INSCRIPTION,D_AFF_PRESELECTION,D_CONCOURS,D_AFF_RESULTAT_CONCOURS,LIEU_CONCOURS,INFORMATION,ID_RESPONSABLE,ID_CONDITION,DOCS_STRING,CONDITION) values ('279','Analyse d''image','RACHID ALAOUI',to_date('07-07-24','DD-MM-YY'),to_date('20-07-24','DD-MM-YY'),to_date('12-08-24','DD-MM-YY'),to_date('15-08-24','DD-MM-YY'),to_date('20-08-24','DD-MM-YY'),'Amphi A et B','ce master est destiner au étudiant des filiere scientifique .........','11','240','Relvé de note S1, S2,S3,S4','avoir une attestation de stage');
+Insert into MEHDI.MASTER (ID_MASTER,SPECIALITE,NOM_COORDINATEUR,D_DEBUT_INSCRIPTION,D_FIN_INSCRIPTION,D_AFF_PRESELECTION,D_CONCOURS,D_AFF_RESULTAT_CONCOURS,LIEU_CONCOURS,INFORMATION,ID_RESPONSABLE,ID_CONDITION,DOCS_STRING,CONDITION) values ('281','Gestion des Affaires',' MME. SARA EL AOUFI',to_date('15-07-24','DD-MM-YY'),to_date('18-07-24','DD-MM-YY'),to_date('22-07-24','DD-MM-YY'),to_date('26-07-24','DD-MM-YY'),to_date('31-07-24','DD-MM-YY'),'Université Cadi Ayyad, Marrakech','Master en Management et Stratégie d''Entreprise
+','11','242','Les relves de note S1, S2,S3 et S4 si disponible','no condition ');
+Insert into MEHDI.MASTER (ID_MASTER,SPECIALITE,NOM_COORDINATEUR,D_DEBUT_INSCRIPTION,D_FIN_INSCRIPTION,D_AFF_PRESELECTION,D_CONCOURS,D_AFF_RESULTAT_CONCOURS,LIEU_CONCOURS,INFORMATION,ID_RESPONSABLE,ID_CONDITION,DOCS_STRING,CONDITION) values ('280','Intelligence Artificielle','LSARDI AHMED',to_date('15-07-24','DD-MM-YY'),to_date('22-07-24','DD-MM-YY'),to_date('26-07-24','DD-MM-YY'),to_date('30-07-24','DD-MM-YY'),to_date('03-08-24','DD-MM-YY'),'Departement Informatique','Lors de l''inscription, il faut attendre jusqu''à les listes sont affichés, puis se diriger vers le lieu de concours pour passer son concours, toute fausse information va éliminer l''étudiant.','12','241','relevés de notes (S1, S2, S3, S4, S5, S6), attestation de réussite, Diplome obtenu, CV, Copie de Baccalauréat',null);
+Insert into MEHDI.MASTER (ID_MASTER,SPECIALITE,NOM_COORDINATEUR,D_DEBUT_INSCRIPTION,D_FIN_INSCRIPTION,D_AFF_PRESELECTION,D_CONCOURS,D_AFF_RESULTAT_CONCOURS,LIEU_CONCOURS,INFORMATION,ID_RESPONSABLE,ID_CONDITION,DOCS_STRING,CONDITION) values ('282','Systeme Embarqués','MAATOUK KARIM',to_date('15-07-24','DD-MM-YY'),to_date('18-07-24','DD-MM-YY'),to_date('20-07-24','DD-MM-YY'),to_date('22-07-24','DD-MM-YY'),to_date('24-07-24','DD-MM-YY'),'Amphie D','Lors de l''inscription, il faut attendre jusqu''à les listes sont affichés, puis se diriger vers le lieu de concours pour passer son concours','12','243','attestation de réussite, Diplome obtenu, CV, Copie de Baccalauréat
+',null);
+Insert into MEHDI.MASTER (ID_MASTER,SPECIALITE,NOM_COORDINATEUR,D_DEBUT_INSCRIPTION,D_FIN_INSCRIPTION,D_AFF_PRESELECTION,D_CONCOURS,D_AFF_RESULTAT_CONCOURS,LIEU_CONCOURS,INFORMATION,ID_RESPONSABLE,ID_CONDITION,DOCS_STRING,CONDITION) values ('278','Etude islamique','BAKAR',to_date('14-07-23','DD-MM-YY'),to_date('16-07-24','DD-MM-YY'),to_date('27-07-24','DD-MM-YY'),to_date('28-07-24','DD-MM-YY'),to_date('31-07-24','DD-MM-YY'),'Amphie D','.','15','239','relevés de notes (S1, S2, S3, S4, S5, S6), attestation de réussite, Diplome obtenu, CV, Copie de Baccalauréat','i love you mama');
+Insert into MEHDI.MASTER (ID_MASTER,SPECIALITE,NOM_COORDINATEUR,D_DEBUT_INSCRIPTION,D_FIN_INSCRIPTION,D_AFF_PRESELECTION,D_CONCOURS,D_AFF_RESULTAT_CONCOURS,LIEU_CONCOURS,INFORMATION,ID_RESPONSABLE,ID_CONDITION,DOCS_STRING,CONDITION) values ('276','WATER ANNALYS','Ahmed Mansory',to_date('14-07-10','DD-MM-YY'),to_date('15-07-24','DD-MM-YY'),to_date('19-07-24','DD-MM-YY'),to_date('26-07-24','DD-MM-YY'),to_date('28-07-24','DD-MM-YY'),'Amphie A','.','15','237','relevés de notes (S1, S2, S3, S4, S5, S6), attestation de réussite, Diplome obtenu, CV, Copie de Baccalauréat','sssss');
+Insert into MEHDI.MASTER (ID_MASTER,SPECIALITE,NOM_COORDINATEUR,D_DEBUT_INSCRIPTION,D_FIN_INSCRIPTION,D_AFF_PRESELECTION,D_CONCOURS,D_AFF_RESULTAT_CONCOURS,LIEU_CONCOURS,INFORMATION,ID_RESPONSABLE,ID_CONDITION,DOCS_STRING,CONDITION) values ('283','Agriculture et Systeme vegetales','AMRI YASSINE',to_date('10-07-24','DD-MM-YY'),to_date('17-07-24','DD-MM-YY'),to_date('20-07-24','DD-MM-YY'),to_date('21-07-24','DD-MM-YY'),to_date('24-07-24','DD-MM-YY'),'Faculté des sciences departement de chimie','Lors de l''inscription, il faut attendre jusqu''à les listes sont affichés, puis se diriger vers le lieu de concours pour passer son concours, toute fausse information va éliminer l''étudiant.','13','244','relevés de notes (S1, S2, S3, S4, S5, S6), attestation de réussite, Diplome obtenu, CV, Copie de Baccalauréat',null);
+Insert into MEHDI.MASTER (ID_MASTER,SPECIALITE,NOM_COORDINATEUR,D_DEBUT_INSCRIPTION,D_FIN_INSCRIPTION,D_AFF_PRESELECTION,D_CONCOURS,D_AFF_RESULTAT_CONCOURS,LIEU_CONCOURS,INFORMATION,ID_RESPONSABLE,ID_CONDITION,DOCS_STRING,CONDITION) values ('277','Etude francaise','MEHDI Mrzoqui',to_date('14-07-24','DD-MM-YY'),to_date('17-07-24','DD-MM-YY'),to_date('04-08-24','DD-MM-YY'),to_date('05-08-24','DD-MM-YY'),to_date('09-08-24','DD-MM-YY'),'Lina school ifrane','tacos sop','15','238','photo cv cin','i love you mama');
+Insert into MEHDI.MASTER (ID_MASTER,SPECIALITE,NOM_COORDINATEUR,D_DEBUT_INSCRIPTION,D_FIN_INSCRIPTION,D_AFF_PRESELECTION,D_CONCOURS,D_AFF_RESULTAT_CONCOURS,LIEU_CONCOURS,INFORMATION,ID_RESPONSABLE,ID_CONDITION,DOCS_STRING,CONDITION) values ('284','Génie energetiques et Systemes d''information','TAILAND HASSAN',to_date('15-02-24','DD-MM-YY'),to_date('17-07-24','DD-MM-YY'),to_date('19-07-24','DD-MM-YY'),to_date('21-07-24','DD-MM-YY'),to_date('25-07-24','DD-MM-YY'),'Bloc 6.9','Lors de l''inscription, il faut attendre jusqu''à les listes sont affichés, puis se diriger vers le lieu de concours pour passer son concours, toute fausse information va éliminer l''étudiant.','13','245','relevés de notes (S1, S2, S3, S4, S5, S6), attestation de réussite, Diplome obtenu, CV, Copie de Baccalauréat',null);
+Insert into MEHDI.MASTER (ID_MASTER,SPECIALITE,NOM_COORDINATEUR,D_DEBUT_INSCRIPTION,D_FIN_INSCRIPTION,D_AFF_PRESELECTION,D_CONCOURS,D_AFF_RESULTAT_CONCOURS,LIEU_CONCOURS,INFORMATION,ID_RESPONSABLE,ID_CONDITION,DOCS_STRING,CONDITION) values ('285','WATER ANNALYS','MOHAMED ELENASARI',to_date('15-07-24','DD-MM-YY'),to_date('17-07-24','DD-MM-YY'),to_date('21-07-24','DD-MM-YY'),to_date('24-07-24','DD-MM-YY'),to_date('31-07-24','DD-MM-YY'),'AZZZZZZZZZZ','XXCCC','21','246','CV LES RELéé','dddd');
+REM INSERTING into MEHDI.MASTER_TOKENMAP
+SET DEFINE OFF;
+REM INSERTING into MEHDI.NOTIF
+SET DEFINE OFF;
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('36','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Tofo".',to_date('14-07-24','DD-MM-YY'),'t','2','278','30');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('35','Vous etes inscrit avec succes au master "Tofo".',to_date('14-07-24','DD-MM-YY'),'t','1','278','30');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('72','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','6');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('73','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','24');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('74','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','1');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('75','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','18');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('76','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','25');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('77','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','2');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('78','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','19');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('79','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','22');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('80','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','4');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('81','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','5');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('82','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','21');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('83','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','3');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('84','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','20');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('85','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','23');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('86','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','26');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('87','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','21');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('88','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','23');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('89','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','20');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('90','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','4');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('91','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','19');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('92','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','6');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('93','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','30');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('94','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','18');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('95','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','24');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('96','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','3');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('97','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','1');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('98','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','22');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('99','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','5');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('100','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','25');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('101','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','26');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('102','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','2');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('105','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','25');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('106','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','26');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('107','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','2');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('183','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','3');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('184','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','1');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('185','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','5');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('186','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','25');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('231','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','25');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('232','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','18');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('233','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','30');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('234','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','2');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('235','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','4');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('236','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','21');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('237','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','23');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('187','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','1');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('188','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','25');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('259','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','24');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('189','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','19');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('190','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','4');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('191','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','5');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('192','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','3');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('193','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','26');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('258','Vous etes inscrit avec succes au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'t','1','277','33');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('260','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','18');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('261','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','25');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('262','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','2');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('263','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','31');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('264','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','4');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('265','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','21');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('266','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','5');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('267','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','3');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('268','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','23');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('269','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','26');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('270','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'t','2','277','33');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('271','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','6');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('272','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','30');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('273','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','24');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('274','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','21');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('275','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','31');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('276','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','6');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('277','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','18');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('278','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','3');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('279','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','5');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('280','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','23');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('281','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','25');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('282','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','30');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('283','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'t','3','277','33');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('284','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','2');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('285','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','4');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('286','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','26');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('287','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('15-07-24','DD-MM-YY'),'f','3','277','25');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('288','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('15-07-24','DD-MM-YY'),'f','3','277','30');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('290','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('15-07-24','DD-MM-YY'),'f','3','277','2');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('291','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('15-07-24','DD-MM-YY'),'t','3','277','33');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('292','Vous etes inscrit avec succes au master "Etude islamique".',to_date('15-07-24','DD-MM-YY'),'t','1','278','33');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('293','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude islamique".',to_date('15-07-24','DD-MM-YY'),'t','2','278','33');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('294','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude islamique".',to_date('15-07-24','DD-MM-YY'),'t','3','278','33');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('295','Vous etes inscrit avec succes au master "Etude islamique".',to_date('15-07-24','DD-MM-YY'),'t','1','278','34');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('296','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','1');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('54','Vous etes inscrit avec succes au master "Tofo".',to_date('14-07-24','DD-MM-YY'),'f','1','278','1');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('109','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','24');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('55','Vous etes inscrit avec succes au master "Tofo".',to_date('14-07-24','DD-MM-YY'),'f','1','278','2');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('56','Vous etes inscrit avec succes au master "Tofo".',to_date('14-07-24','DD-MM-YY'),'f','1','278','3');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('57','Vous etes inscrit avec succes au master "Tofo".',to_date('14-07-24','DD-MM-YY'),'f','1','278','4');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('58','Vous etes inscrit avec succes au master "Tofo".',to_date('14-07-24','DD-MM-YY'),'f','1','278','5');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('59','Vous etes inscrit avec succes au master "Tofo".',to_date('14-07-24','DD-MM-YY'),'f','1','278','6');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('60','Vous etes inscrit avec succes au master "Tofo".',to_date('14-07-24','DD-MM-YY'),'f','1','278','18');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('61','Vous etes inscrit avec succes au master "Tofo".',to_date('14-07-24','DD-MM-YY'),'f','1','278','19');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('62','Vous etes inscrit avec succes au master "Tofo".',to_date('14-07-24','DD-MM-YY'),'f','1','278','20');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('63','Vous etes inscrit avec succes au master "Tofo".',to_date('14-07-24','DD-MM-YY'),'f','1','278','21');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('64','Vous etes inscrit avec succes au master "Tofo".',to_date('14-07-24','DD-MM-YY'),'f','1','278','22');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('65','Vous etes inscrit avec succes au master "Tofo".',to_date('14-07-24','DD-MM-YY'),'f','1','278','23');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('66','Vous etes inscrit avec succes au master "Tofo".',to_date('14-07-24','DD-MM-YY'),'f','1','278','24');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('67','Vous etes inscrit avec succes au master "Tofo".',to_date('14-07-24','DD-MM-YY'),'f','1','278','25');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('68','Vous etes inscrit avec succes au master "Tofo".',to_date('14-07-24','DD-MM-YY'),'f','1','278','26');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('69','Vous etes inscrit avec succes au master "Tofo".',to_date('14-07-24','DD-MM-YY'),'f','1','278',null);
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('70','Vous etes inscrit avec succes au master "Tofo".',to_date('14-07-24','DD-MM-YY'),'f','1','278',null);
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('71','Vous etes inscrit avec succes au master "Tofo".',to_date('14-07-24','DD-MM-YY'),'f','1','278',null);
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('108','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','6');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('110','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','1');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('111','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','18');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('112','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','25');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('113','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','30');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('114','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','2');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('115','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','19');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('116','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','22');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('117','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','4');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('118','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','5');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('119','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','21');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('120','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','3');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('121','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','20');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('122','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','23');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('123','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','26');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('124','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','21');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('125','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','20');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('126','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','19');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('127','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','2');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('128','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','4');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('129','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','18');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('130','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','30');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('131','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','25');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('132','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','3');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('133','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','1');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('134','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','5');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('135','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','23');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('136','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','26');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('137','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','24');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('138','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','22');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('139','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','6');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('142','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','5');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('143','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','23');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('148','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','1');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('149','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','18');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('150','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','25');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('151','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','30');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('152','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','2');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('153','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','19');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('37','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Tofo".',to_date('14-07-24','DD-MM-YY'),'t','3','278','30');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('144','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','26');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('145','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','24');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('146','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','22');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('154','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','22');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('155','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','4');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('156','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','5');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('157','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','21');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('158','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','3');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('159','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','20');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('160','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','23');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('161','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','26');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('162','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','6');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('163','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','24');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('164','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','24');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('165','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','6');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('166','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','23');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('167','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','22');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('168','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','21');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('169','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','2');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('170','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','20');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('171','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','30');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('172','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','19');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('173','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','4');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('174','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','18');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('175','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','3');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('176','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','1');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('177','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','5');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('178','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','25');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('179','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','26');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('180','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','19');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('181','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','4');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('182','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','18');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('229','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','22');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('230','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','26');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('238','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','26');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('239','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','6');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('240','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','24');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('241','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','3');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('242','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','1');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('243','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','5');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('244','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','6');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('245','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','23');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('246','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','21');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('247','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','2');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('248','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','4');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('140','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','1');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('141','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','3');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('147','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','6');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('194','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','1');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('195','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','18');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('196','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','25');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('197','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','30');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('198','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','2');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('199','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','19');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('200','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','6');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('201','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','24');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('202','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','22');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('203','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','4');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('204','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','5');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('205','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','21');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('206','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','3');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('207','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','20');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('208','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','23');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('209','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','2','277','26');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('210','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','21');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('211','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','2');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('212','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','20');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('213','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','19');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('214','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','4');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('215','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','18');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('216','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','3');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('217','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','1');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('218','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','5');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('219','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','6');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('220','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','24');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('221','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','25');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('222','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','23');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('223','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','22');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('224','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','26');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('225','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','30');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('226','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','6');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('227','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','24');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('228','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('14-07-24','DD-MM-YY'),'f','3','277','5');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('249','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','18');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('250','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','3');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('251','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','1');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('252','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','5');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('253','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','26');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('254','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','24');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('255','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','25');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('256','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'f','3','277','30');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('257','Vous etes inscrit avec succes au master "Etude francaise".',to_date('14-07-24','DD-MM-YY'),'t','1','277','31');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('289','Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "Etude francaise". Veuillez consulter votre boîte mail pour plus d''informations.',to_date('15-07-24','DD-MM-YY'),'f','3','277','30');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('314','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','3');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('315','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','1');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('316','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','2');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('317','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','18');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('318','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','19');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('319','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','4');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('320','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','20');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('321','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','26');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('322','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','5');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('323','Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','21');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('324','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','6');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('325','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','24');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('326','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'t','3','277','33');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('327','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','25');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('328','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','30');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('329','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','22');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('330','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','31');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('331','Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','3','277','23');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('297','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','18');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('298','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','25');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('299','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','30');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('300','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','2');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('301','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','19');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('302','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','6');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('303','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','24');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('304','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','22');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('305','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','31');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('306','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','4');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('307','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','5');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('308','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','21');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('309','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','3');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('310','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','20');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('311','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','23');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('312','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'f','2','277','26');
+Insert into MEHDI.NOTIF (ID_NOTIF,MSG,NOTIF_DATE,READED,ID_TAG,ID_MASTER,ID_ETUDIANT) values ('313','Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "Etude francaise".',to_date('15-07-24','DD-MM-YY'),'t','2','277','33');
+REM INSERTING into MEHDI.PRESELECTION
+SET DEFINE OFF;
+Insert into MEHDI.PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE) values ('466','181','12');
+Insert into MEHDI.PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE) values ('470','1','20');
+Insert into MEHDI.PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE) values ('471','7','15');
+Insert into MEHDI.PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE) values ('472','15',null);
+Insert into MEHDI.PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE) values ('473','141',null);
+Insert into MEHDI.PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE) values ('474','2','19');
+Insert into MEHDI.PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE) values ('475','8','15');
+Insert into MEHDI.PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE) values ('468','6',null);
+Insert into MEHDI.PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE) values ('469','14',null);
+Insert into MEHDI.PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE) values ('476','12',null);
+Insert into MEHDI.PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE) values ('477','142',null);
+Insert into MEHDI.PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE) values ('478','4','13');
+Insert into MEHDI.PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE) values ('479','5','10');
+Insert into MEHDI.PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE) values ('480','10','0');
+Insert into MEHDI.PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE) values ('481','3','23');
+Insert into MEHDI.PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE) values ('482','9','13');
+Insert into MEHDI.PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE) values ('483','13',null);
+Insert into MEHDI.PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE) values ('484','16','12');
+Insert into MEHDI.PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE) values ('467','161',null);
+REM INSERTING into MEHDI.PUBLICATION
+SET DEFINE OFF;
+Insert into MEHDI.PUBLICATION (ID_PUBLICATION,ID_MASTER,DATE_PUBLICATION,TYPE_PUB,TITRE,SOUS_TITRE) values ('304','277',to_date('15-07-24','DD-MM-YY'),'LFA','Résultat du concours du  master Etude francaise ','veuilez votre dossier ');
+Insert into MEHDI.PUBLICATION (ID_PUBLICATION,ID_MASTER,DATE_PUBLICATION,TYPE_PUB,TITRE,SOUS_TITRE) values ('302','278',to_date('15-07-24','DD-MM-YY'),'LFA','Résultat du concours du  master Etude islamique ','Veuilez déposer votre dossier avant le 12/08');
+Insert into MEHDI.PUBLICATION (ID_PUBLICATION,ID_MASTER,DATE_PUBLICATION,TYPE_PUB,TITRE,SOUS_TITRE) values ('301','278',to_date('15-07-24','DD-MM-YY'),'PRE','Résultat du préselection au master Etude islamique','Les étudiants présélectionnés sont convoqués pour passer le concours le 2024-07-28 à 08:30h');
+Insert into MEHDI.PUBLICATION (ID_PUBLICATION,ID_MASTER,DATE_PUBLICATION,TYPE_PUB,TITRE,SOUS_TITRE) values ('303','277',to_date('15-07-24','DD-MM-YY'),'PRE','Résultat du préselection au master Etude francaise','Les étudiants présélectionnés sont convoqués pour passer le concours le 2024-08-05 à  12/02');
+REM INSERTING into MEHDI.REJECTED
+SET DEFINE OFF;
+REM INSERTING into MEHDI.RESPONSABLE
+SET DEFINE OFF;
+Insert into MEHDI.RESPONSABLE (ID_RESPONSABLE,EMAIL,PASSWORD,ID_FACULTE) values ('17','UIZfsjes@gmail.com','123','2');
+Insert into MEHDI.RESPONSABLE (ID_RESPONSABLE,EMAIL,PASSWORD,ID_FACULTE) values ('15','UMIfs@gmail.com','123','41');
+Insert into MEHDI.RESPONSABLE (ID_RESPONSABLE,EMAIL,PASSWORD,ID_FACULTE) values ('11','USMSfst@gmail.com','123','49');
+Insert into MEHDI.RESPONSABLE (ID_RESPONSABLE,EMAIL,PASSWORD,ID_FACULTE) values ('12','fsUit@gmail.com','123','10');
+Insert into MEHDI.RESPONSABLE (ID_RESPONSABLE,EMAIL,PASSWORD,ID_FACULTE) values ('13','UM5flsh@gmail.com','123','20');
+Insert into MEHDI.RESPONSABLE (ID_RESPONSABLE,EMAIL,PASSWORD,ID_FACULTE) values ('21','midouhammioui@gmail.com','123','4');
+Insert into MEHDI.RESPONSABLE (ID_RESPONSABLE,EMAIL,PASSWORD,ID_FACULTE) values ('19','e.hammioui@edu.umi.ac.ma','123','11');
+REM INSERTING into MEHDI.TAG
+SET DEFINE OFF;
+Insert into MEHDI.TAG (ID_TAG,TAG_NAME) values ('1','Inscription');
+Insert into MEHDI.TAG (ID_TAG,TAG_NAME) values ('2','Preselection');
+Insert into MEHDI.TAG (ID_TAG,TAG_NAME) values ('3','Concours');
+REM INSERTING into MEHDI.TMP_CONVOCATION
+SET DEFINE OFF;
+Insert into MEHDI.TMP_CONVOCATION (ID_CONVOCATION,ID_INSCRIPTION) values ('201','15');
+Insert into MEHDI.TMP_CONVOCATION (ID_CONVOCATION,ID_INSCRIPTION) values ('204','161');
+Insert into MEHDI.TMP_CONVOCATION (ID_CONVOCATION,ID_INSCRIPTION) values ('202','141');
+Insert into MEHDI.TMP_CONVOCATION (ID_CONVOCATION,ID_INSCRIPTION) values ('205','4');
+Insert into MEHDI.TMP_CONVOCATION (ID_CONVOCATION,ID_INSCRIPTION) values ('206','16');
+REM INSERTING into MEHDI.TMP_LISTE_ATTENTE
+SET DEFINE OFF;
+Insert into MEHDI.TMP_LISTE_ATTENTE (ID_LA,ID_INSCRIPTION,ID_MASTER) values ('556','6','277');
+Insert into MEHDI.TMP_LISTE_ATTENTE (ID_LA,ID_INSCRIPTION,ID_MASTER) values ('557','14','277');
+Insert into MEHDI.TMP_LISTE_ATTENTE (ID_LA,ID_INSCRIPTION,ID_MASTER) values ('558','161','277');
+Insert into MEHDI.TMP_LISTE_ATTENTE (ID_LA,ID_INSCRIPTION,ID_MASTER) values ('559','15','277');
+Insert into MEHDI.TMP_LISTE_ATTENTE (ID_LA,ID_INSCRIPTION,ID_MASTER) values ('560','141','277');
+Insert into MEHDI.TMP_LISTE_ATTENTE (ID_LA,ID_INSCRIPTION,ID_MASTER) values ('561','12','277');
+Insert into MEHDI.TMP_LISTE_ATTENTE (ID_LA,ID_INSCRIPTION,ID_MASTER) values ('562','142','277');
+Insert into MEHDI.TMP_LISTE_ATTENTE (ID_LA,ID_INSCRIPTION,ID_MASTER) values ('563','13','277');
+REM INSERTING into MEHDI.TMP_LISTE_FINALE
+SET DEFINE OFF;
+Insert into MEHDI.TMP_LISTE_FINALE (ID_LF,ID_INSCRIPTION,ID_MASTER) values ('1402','3','277');
+Insert into MEHDI.TMP_LISTE_FINALE (ID_LF,ID_INSCRIPTION,ID_MASTER) values ('1403','1','277');
+Insert into MEHDI.TMP_LISTE_FINALE (ID_LF,ID_INSCRIPTION,ID_MASTER) values ('1404','2','277');
+Insert into MEHDI.TMP_LISTE_FINALE (ID_LF,ID_INSCRIPTION,ID_MASTER) values ('1405','7','277');
+Insert into MEHDI.TMP_LISTE_FINALE (ID_LF,ID_INSCRIPTION,ID_MASTER) values ('1406','8','277');
+Insert into MEHDI.TMP_LISTE_FINALE (ID_LF,ID_INSCRIPTION,ID_MASTER) values ('1407','4','277');
+Insert into MEHDI.TMP_LISTE_FINALE (ID_LF,ID_INSCRIPTION,ID_MASTER) values ('1408','9','277');
+Insert into MEHDI.TMP_LISTE_FINALE (ID_LF,ID_INSCRIPTION,ID_MASTER) values ('1409','16','277');
+Insert into MEHDI.TMP_LISTE_FINALE (ID_LF,ID_INSCRIPTION,ID_MASTER) values ('1410','5','277');
+Insert into MEHDI.TMP_LISTE_FINALE (ID_LF,ID_INSCRIPTION,ID_MASTER) values ('1411','10','277');
+Insert into MEHDI.TMP_LISTE_FINALE (ID_LF,ID_INSCRIPTION,ID_MASTER) values ('1401','181','278');
+REM INSERTING into MEHDI.TMP_PRESELECTION
+SET DEFINE OFF;
+Insert into MEHDI.TMP_PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE,ID_MASTER) values ('470','1','20','277');
+Insert into MEHDI.TMP_PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE,ID_MASTER) values ('471','7','15','277');
+Insert into MEHDI.TMP_PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE,ID_MASTER) values ('472','15',null,'277');
+Insert into MEHDI.TMP_PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE,ID_MASTER) values ('473','141',null,'277');
+Insert into MEHDI.TMP_PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE,ID_MASTER) values ('474','2','19','277');
+Insert into MEHDI.TMP_PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE,ID_MASTER) values ('475','8','15','277');
+Insert into MEHDI.TMP_PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE,ID_MASTER) values ('468','6',null,'277');
+Insert into MEHDI.TMP_PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE,ID_MASTER) values ('469','14',null,'277');
+Insert into MEHDI.TMP_PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE,ID_MASTER) values ('476','12',null,'277');
+Insert into MEHDI.TMP_PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE,ID_MASTER) values ('477','142',null,'277');
+Insert into MEHDI.TMP_PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE,ID_MASTER) values ('478','4','13','277');
+Insert into MEHDI.TMP_PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE,ID_MASTER) values ('479','5','10','277');
+Insert into MEHDI.TMP_PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE,ID_MASTER) values ('480','10','0','277');
+Insert into MEHDI.TMP_PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE,ID_MASTER) values ('481','3','23','277');
+Insert into MEHDI.TMP_PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE,ID_MASTER) values ('482','9','13','277');
+Insert into MEHDI.TMP_PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE,ID_MASTER) values ('483','13',null,'277');
+Insert into MEHDI.TMP_PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE,ID_MASTER) values ('484','16','12','277');
+Insert into MEHDI.TMP_PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE,ID_MASTER) values ('466','181','12','278');
+Insert into MEHDI.TMP_PRESELECTION (ID_PS,ID_INSCRIPTION,SCORE,ID_MASTER) values ('467','161',null,'277');
+REM INSERTING into MEHDI.UNIVERSITE
+SET DEFINE OFF;
+Insert into MEHDI.UNIVERSITE (ID_UNIVERSITE,NOM_UNI,VILLE,SURNOM_UNI,WEB_SITE,LOGO_UNI) values ('13','Université Akhawayn','Ifrane','AUI','http://www.aui.ma','/img/logoUni/AUI.svg');
+Insert into MEHDI.UNIVERSITE (ID_UNIVERSITE,NOM_UNI,VILLE,SURNOM_UNI,WEB_SITE,LOGO_UNI) values ('14','Université Euro-Méditerranéenne de Fès','Fès','UEMF','http://www.ueuromed.org','/img/logoUni/UEMF.svg');
+Insert into MEHDI.UNIVERSITE (ID_UNIVERSITE,NOM_UNI,VILLE,SURNOM_UNI,WEB_SITE,LOGO_UNI) values ('17','Université Mundiapolis','Casablanca','Mundiapolis','http://www.mundiapolis.ma','/img/logoUni/mundiapolis.png');
+Insert into MEHDI.UNIVERSITE (ID_UNIVERSITE,NOM_UNI,VILLE,SURNOM_UNI,WEB_SITE,LOGO_UNI) values ('18','Université Mohammed VI Polytechnique','Benguérir','UM6P','http://www.um6p.ma','/img/logoUni/UM6P.png');
+Insert into MEHDI.UNIVERSITE (ID_UNIVERSITE,NOM_UNI,VILLE,SURNOM_UNI,WEB_SITE,LOGO_UNI) values ('1','Université Mohamed-V','Rabat','UM5','http://www.um5.ac.ma','http://www.um5.ac.ma/um5/sites/default/files/um5-wide.png');
+Insert into MEHDI.UNIVERSITE (ID_UNIVERSITE,NOM_UNI,VILLE,SURNOM_UNI,WEB_SITE,LOGO_UNI) values ('2','Université Hassan-II','Casablanca','UnivH2','http://www.univh2c.ma','https://www.univh2c.ma/wp-content/uploads/2021/12/logo.jpg');
+Insert into MEHDI.UNIVERSITE (ID_UNIVERSITE,NOM_UNI,VILLE,SURNOM_UNI,WEB_SITE,LOGO_UNI) values ('3','Université Sidi Mohamed Ben Abdellah','Fès','USMBA','http://www.usmba.ac.ma','https://www.usmba.ac.ma/~usmba2/wp-content/uploads/2019/06/usmba_90h.png');
+Insert into MEHDI.UNIVERSITE (ID_UNIVERSITE,NOM_UNI,VILLE,SURNOM_UNI,WEB_SITE,LOGO_UNI) values ('4','Université Mohammed-I','Oujda','UMP','http://www.ump.ma','https://www.ump.ma/assets/logo.webp');
+Insert into MEHDI.UNIVERSITE (ID_UNIVERSITE,NOM_UNI,VILLE,SURNOM_UNI,WEB_SITE,LOGO_UNI) values ('5','Université Cadi Ayyad','Marrakech','UCA','http://www.uca.ma','https://www.uca.ma/public/website/theme-3/images/logo-dark.png');
+Insert into MEHDI.UNIVERSITE (ID_UNIVERSITE,NOM_UNI,VILLE,SURNOM_UNI,WEB_SITE,LOGO_UNI) values ('6','Université Moulay Smail','Meknès','UMI','http://www.umi.ac.ma','https://www.umi.ac.ma/wp-content/themes/umi/images/logo.png');
+Insert into MEHDI.UNIVERSITE (ID_UNIVERSITE,NOM_UNI,VILLE,SURNOM_UNI,WEB_SITE,LOGO_UNI) values ('7','Université Abdelmalek Essaadi','Tanger','UAE','http://www.uae.ma','https://www.uae.ac.ma/sites/default/files/logo.png');
+Insert into MEHDI.UNIVERSITE (ID_UNIVERSITE,NOM_UNI,VILLE,SURNOM_UNI,WEB_SITE,LOGO_UNI) values ('8','Université Chouaib Doukkali','El Jadida','UCD','http://www.ucd.ac.ma','https://www.ucd.ac.ma/wp-content/uploads/2021/10/logo_ucd-140x81.png');
+Insert into MEHDI.UNIVERSITE (ID_UNIVERSITE,NOM_UNI,VILLE,SURNOM_UNI,WEB_SITE,LOGO_UNI) values ('9','Université Ibn Tofail','Kénitra','UIT','http://www.uit.ac.ma','https://www.uit.ac.ma/wp-content/uploads/2024/03/cropped-Ibn-Tofail-University_Logo_Vertical_Full-Color-and-white-01-120x120.png');
+Insert into MEHDI.UNIVERSITE (ID_UNIVERSITE,NOM_UNI,VILLE,SURNOM_UNI,WEB_SITE,LOGO_UNI) values ('10','Université Ibn Zohr','Agadir','UIZ','http://www.uiz.ac.ma','https://upload.wikimedia.org/wikipedia/commons/b/b0/Logo-UIZ.jpg');
+Insert into MEHDI.UNIVERSITE (ID_UNIVERSITE,NOM_UNI,VILLE,SURNOM_UNI,WEB_SITE,LOGO_UNI) values ('11','Université Hassan-I','Settat','UH1','http://www.uh1.ac.ma','https://www.uh1.ac.ma/wp-content/uploads/2021/04/loogo.png');
+Insert into MEHDI.UNIVERSITE (ID_UNIVERSITE,NOM_UNI,VILLE,SURNOM_UNI,WEB_SITE,LOGO_UNI) values ('12','Université Sultan Moulay Slimane','Béni Mellal','USMS','http://www.usms.ac.ma','https://www.usms.ac.ma/sites/default/files/logo_usms_v.fw_.png');
+--------------------------------------------------------
+--  DDL for Index SYS_C008705
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008705" ON "MEHDI"."ADMIN" ("ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008592
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008592" ON "MEHDI"."CONDITION" ("ID_CONDITION") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008692
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008692" ON "MEHDI"."CONVOCATION" ("ID_CONVOCATION") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008698
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008698" ON "MEHDI"."DOC" ("ID_DOC") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008610
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008610" ON "MEHDI"."ETUDIANT" ("ID_ETUDIANT") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008611
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008611" ON "MEHDI"."ETUDIANT" ("EMAIL") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008612
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008612" ON "MEHDI"."ETUDIANT" ("CIN") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008613
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008613" ON "MEHDI"."ETUDIANT" ("MASSAR") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008694
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008694" ON "MEHDI"."ETUDIANT_TOKENMAP" ("TOKEN") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008580
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008580" ON "MEHDI"."FACULTE" ("ID_FACULTE") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008599
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008599" ON "MEHDI"."FILIERE_ADMET_MASTER" ("ID_FAM") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008583
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008583" ON "MEHDI"."FILIERE_LICENCE" ("ID_FIL_LICENCE") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008657
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008657" ON "MEHDI"."INFO_ACADEMIQUE" ("ID_IA") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008630
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008630" ON "MEHDI"."INSCRIPTION" ("ID_INSCRIPTION") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008643
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008643" ON "MEHDI"."LISTE_ATTENTE" ("ID_LA") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008640
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008640" ON "MEHDI"."LISTE_FINALE" ("ID_LF") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008700
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008700" ON "MEHDI"."M_COMMENT" ("ID_COMMENT") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008595
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008595" ON "MEHDI"."MASTER" ("ID_MASTER") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008695
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008695" ON "MEHDI"."MASTER_TOKENMAP" ("TOKEN") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008696
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008696" ON "MEHDI"."NOTIF" ("ID_NOTIF") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008634
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008634" ON "MEHDI"."PRESELECTION" ("ID_PS") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008681
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008681" ON "MEHDI"."PUBLICATION" ("ID_PUBLICATION") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008588
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008588" ON "MEHDI"."RESPONSABLE" ("ID_RESPONSABLE") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008589
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008589" ON "MEHDI"."RESPONSABLE" ("EMAIL") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008703
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008703" ON "MEHDI"."TAG" ("ID_TAG") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008690
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008690" ON "MEHDI"."TMP_CONVOCATION" ("ID_CONVOCATION") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C008579
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MEHDI"."SYS_C008579" ON "MEHDI"."UNIVERSITE" ("ID_UNIVERSITE") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Trigger NOTIF_CONV_TRIGGER
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "MEHDI"."NOTIF_CONV_TRIGGER" AFTER INSERT ON convocation
+FOR EACH ROW
+DECLARE
+v_specialite VARCHAR2(60);
+v_id_master number;
+v_id_etudiant number;
+BEGIN
+    select id_master into v_id_master from inscription where id_Inscription = :NEW.id_Inscription;
+    select id_etudiant into v_id_etudiant from inscription where id_Inscription = :NEW.id_Inscription;
+    select specialite into v_specialite from master where id_master = v_id_master;
+        INSERT INTO notif (id_notif, msg, notif_date, id_tag, readed, id_master, id_etudiant) 
+        VALUES(notif_seq.NEXTVAL,
+               'Felicitations ! Vous avez ete transfere de la liste d''attente a la liste finale pour pour le concours d''admission au master "' || v_specialite ||'". Veuillez consulter votre boîte mail pour plus d''informations.',
+                sysdate,
+                3,
+                'f',
+                v_id_master,
+                v_id_etudiant);
+END;
+/
+ALTER TRIGGER "MEHDI"."NOTIF_CONV_TRIGGER" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger NOTIF_I_TRIGGER
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "MEHDI"."NOTIF_I_TRIGGER" AFTER INSERT ON inscription                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+FOR EACH ROW                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+DECLARE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+v_specialite VARCHAR2(60);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+BEGIN                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+    select specialite into v_specialite from master where id_master = :NEW.id_master;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+        INSERT INTO notif (id_notif, msg, notif_date, id_tag, readed, id_master, id_etudiant)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+        VALUES(notif_seq.NEXTVAL,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+               'Vous etes inscrit avec succes au master "' || v_specialite ||'".',                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+                sysdate,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                1,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+                'f',                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                :NEW.id_master,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+                :NEW.id_etudiant);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+END;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
+/
+ALTER TRIGGER "MEHDI"."NOTIF_I_TRIGGER" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger NOTIF_L_A_TRIGGER
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "MEHDI"."NOTIF_L_A_TRIGGER" AFTER INSERT ON Liste_Attente
+FOR EACH ROW
+DECLARE
+v_specialite VARCHAR2(60);
+v_id_master number;
+v_id_etudiant number;
+BEGIN
+    select id_master into v_id_master from inscription where id_Inscription = :NEW.id_Inscription;
+    select id_etudiant into v_id_etudiant from inscription where id_Inscription = :NEW.id_Inscription;
+    select specialite into v_specialite from master where id_master = v_id_master;
+        INSERT INTO notif (id_notif, msg, notif_date, id_tag, readed, id_master, id_etudiant) 
+        VALUES(notif_seq.NEXTVAL,
+               'Vous etes actuellement sur la liste d''attente pour le concours d''admission au master "' || v_specialite ||'".',
+                sysdate,
+                3,
+                'f',
+                v_id_master,
+                v_id_etudiant);
+END;
+
+/
+ALTER TRIGGER "MEHDI"."NOTIF_L_A_TRIGGER" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger NOTIF_L_F_TRIGGER
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "MEHDI"."NOTIF_L_F_TRIGGER" AFTER INSERT ON Liste_Finale
+FOR EACH ROW
+DECLARE
+v_specialite VARCHAR2(60);
+v_id_master number;
+v_id_etudiant number;
+BEGIN
+    select id_master into v_id_master from inscription where id_Inscription = :NEW.id_Inscription;
+    select id_etudiant into v_id_etudiant from inscription where id_Inscription = :NEW.id_Inscription;
+    select specialite into v_specialite from master where id_master = v_id_master;
+        INSERT INTO notif (id_notif, msg, notif_date, id_tag, readed, id_master, id_etudiant) 
+        VALUES(notif_seq.NEXTVAL,
+               'Felicitations ! Vous etes sur la liste principale pour le concours d''admission au master "' || v_specialite ||'".',
+                sysdate,
+                3,
+                'f',
+                v_id_master,
+                v_id_etudiant);
+END;
+
+/
+ALTER TRIGGER "MEHDI"."NOTIF_L_F_TRIGGER" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger NOTIF_P_TRIGGER
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "MEHDI"."NOTIF_P_TRIGGER" AFTER INSERT ON preselection                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+FOR EACH ROW                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+DECLARE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+v_specialite VARCHAR2(60);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+v_id_master number;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+v_id_etudiant number;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+BEGIN                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+    select id_master into v_id_master from inscription where id_Inscription = :NEW.id_Inscription;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+    select id_etudiant into v_id_etudiant from inscription where id_Inscription = :NEW.id_Inscription;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+    select specialite into v_specialite from master where id_master = v_id_master;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+        INSERT INTO notif (id_notif, msg, notif_date, id_tag, readed, id_master, id_etudiant)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+        VALUES(notif_seq.NEXTVAL,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+               'Felicitations ! Vous avez ete preselectionne pour participer au concours d''admission au master "' || v_specialite ||'".',                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+                sysdate,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                2,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+                'f',                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                v_id_master,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                v_id_etudiant);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+END;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
+/
+ALTER TRIGGER "MEHDI"."NOTIF_P_TRIGGER" ENABLE;
+--------------------------------------------------------
+--  Constraints for Table ADMIN
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."ADMIN" ADD PRIMARY KEY ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table CONDITION
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."CONDITION" MODIFY ("ID_CONDITION" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."CONDITION" ADD PRIMARY KEY ("ID_CONDITION")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table CONVOCATION
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."CONVOCATION" ADD PRIMARY KEY ("ID_CONVOCATION")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table DOC
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."DOC" ADD PRIMARY KEY ("ID_DOC")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table ETUDIANT
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."ETUDIANT" MODIFY ("ID_ETUDIANT" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."ETUDIANT" MODIFY ("NOM" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."ETUDIANT" MODIFY ("PRENOM" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."ETUDIANT" MODIFY ("D_NAISS" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."ETUDIANT" MODIFY ("EMAIL" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."ETUDIANT" MODIFY ("PASSWORD" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."ETUDIANT" MODIFY ("CIN" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."ETUDIANT" MODIFY ("MASSAR" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."ETUDIANT" ADD PRIMARY KEY ("ID_ETUDIANT")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "MEHDI"."ETUDIANT" ADD UNIQUE ("EMAIL")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "MEHDI"."ETUDIANT" ADD UNIQUE ("CIN")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "MEHDI"."ETUDIANT" ADD UNIQUE ("MASSAR")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table ETUDIANT_TOKENMAP
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."ETUDIANT_TOKENMAP" ADD PRIMARY KEY ("TOKEN")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table FACULTE
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."FACULTE" ADD PRIMARY KEY ("ID_FACULTE")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table FILIERE_ADMET_MASTER
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."FILIERE_ADMET_MASTER" MODIFY ("ID_FAM" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."FILIERE_ADMET_MASTER" ADD PRIMARY KEY ("ID_FAM")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table FILIERE_LICENCE
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."FILIERE_LICENCE" MODIFY ("ID_FIL_LICENCE" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."FILIERE_LICENCE" ADD PRIMARY KEY ("ID_FIL_LICENCE")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table INFO_ACADEMIQUE
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."INFO_ACADEMIQUE" MODIFY ("ID_IA" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."INFO_ACADEMIQUE" MODIFY ("D_LICENCE" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."INFO_ACADEMIQUE" MODIFY ("D_BAC" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."INFO_ACADEMIQUE" MODIFY ("MOY_LICENCE" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."INFO_ACADEMIQUE" MODIFY ("N_S1" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."INFO_ACADEMIQUE" MODIFY ("N_S2" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."INFO_ACADEMIQUE" MODIFY ("N_S3" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."INFO_ACADEMIQUE" MODIFY ("N_S4" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."INFO_ACADEMIQUE" MODIFY ("N_S5" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."INFO_ACADEMIQUE" MODIFY ("N_S6" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."INFO_ACADEMIQUE" MODIFY ("ID_FIL_LICENCE" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."INFO_ACADEMIQUE" ADD PRIMARY KEY ("ID_IA")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table INSCRIPTION
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."INSCRIPTION" MODIFY ("ID_INSCRIPTION" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."INSCRIPTION" ADD PRIMARY KEY ("ID_INSCRIPTION")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table LISTE_ATTENTE
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."LISTE_ATTENTE" MODIFY ("ID_LA" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."LISTE_ATTENTE" ADD PRIMARY KEY ("ID_LA")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table LISTE_FINALE
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."LISTE_FINALE" MODIFY ("ID_LF" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."LISTE_FINALE" ADD PRIMARY KEY ("ID_LF")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table M_COMMENT
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."M_COMMENT" MODIFY ("TXT" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."M_COMMENT" ADD PRIMARY KEY ("ID_COMMENT")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table MASTER
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."MASTER" MODIFY ("ID_MASTER" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."MASTER" MODIFY ("SPECIALITE" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."MASTER" ADD PRIMARY KEY ("ID_MASTER")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table MASTER_TOKENMAP
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."MASTER_TOKENMAP" ADD PRIMARY KEY ("TOKEN")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table NOTIF
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."NOTIF" ADD PRIMARY KEY ("ID_NOTIF")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table PRESELECTION
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."PRESELECTION" MODIFY ("ID_PS" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."PRESELECTION" ADD PRIMARY KEY ("ID_PS")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table PUBLICATION
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."PUBLICATION" ADD PRIMARY KEY ("ID_PUBLICATION")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table RESPONSABLE
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."RESPONSABLE" MODIFY ("ID_RESPONSABLE" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."RESPONSABLE" MODIFY ("EMAIL" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."RESPONSABLE" MODIFY ("PASSWORD" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."RESPONSABLE" MODIFY ("ID_FACULTE" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."RESPONSABLE" ADD PRIMARY KEY ("ID_RESPONSABLE")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "MEHDI"."RESPONSABLE" ADD UNIQUE ("EMAIL")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table TAG
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."TAG" ADD PRIMARY KEY ("ID_TAG")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table TMP_CONVOCATION
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."TMP_CONVOCATION" ADD PRIMARY KEY ("ID_CONVOCATION")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table UNIVERSITE
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."UNIVERSITE" MODIFY ("NOM_UNI" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."UNIVERSITE" MODIFY ("SURNOM_UNI" NOT NULL ENABLE);
+  ALTER TABLE "MEHDI"."UNIVERSITE" ADD PRIMARY KEY ("ID_UNIVERSITE")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table CONVOCATION
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."CONVOCATION" ADD FOREIGN KEY ("ID_INSCRIPTION")
+	  REFERENCES "MEHDI"."INSCRIPTION" ("ID_INSCRIPTION") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table FACULTE
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."FACULTE" ADD FOREIGN KEY ("ID_UNIVERSITE")
+	  REFERENCES "MEHDI"."UNIVERSITE" ("ID_UNIVERSITE") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table FILIERE_ADMET_MASTER
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."FILIERE_ADMET_MASTER" ADD FOREIGN KEY ("ID_MASTER")
+	  REFERENCES "MEHDI"."MASTER" ("ID_MASTER") ENABLE;
+  ALTER TABLE "MEHDI"."FILIERE_ADMET_MASTER" ADD FOREIGN KEY ("ID_FIL_LICENCE")
+	  REFERENCES "MEHDI"."FILIERE_LICENCE" ("ID_FIL_LICENCE") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table INFO_ACADEMIQUE
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."INFO_ACADEMIQUE" ADD FOREIGN KEY ("ID_FIL_LICENCE")
+	  REFERENCES "MEHDI"."FILIERE_LICENCE" ("ID_FIL_LICENCE") ENABLE;
+  ALTER TABLE "MEHDI"."INFO_ACADEMIQUE" ADD FOREIGN KEY ("ID_ETUDIANT")
+	  REFERENCES "MEHDI"."ETUDIANT" ("ID_ETUDIANT") ENABLE;
+  ALTER TABLE "MEHDI"."INFO_ACADEMIQUE" ADD FOREIGN KEY ("ID_FACULTE")
+	  REFERENCES "MEHDI"."FACULTE" ("ID_FACULTE") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table INSCRIPTION
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."INSCRIPTION" ADD FOREIGN KEY ("ID_MASTER")
+	  REFERENCES "MEHDI"."MASTER" ("ID_MASTER") ENABLE;
+  ALTER TABLE "MEHDI"."INSCRIPTION" ADD FOREIGN KEY ("ID_ETUDIANT")
+	  REFERENCES "MEHDI"."ETUDIANT" ("ID_ETUDIANT") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table LISTE_ATTENTE
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."LISTE_ATTENTE" ADD FOREIGN KEY ("ID_INSCRIPTION")
+	  REFERENCES "MEHDI"."INSCRIPTION" ("ID_INSCRIPTION") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table LISTE_FINALE
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."LISTE_FINALE" ADD FOREIGN KEY ("ID_INSCRIPTION")
+	  REFERENCES "MEHDI"."INSCRIPTION" ("ID_INSCRIPTION") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table M_COMMENT
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."M_COMMENT" ADD FOREIGN KEY ("ID_MASTER")
+	  REFERENCES "MEHDI"."MASTER" ("ID_MASTER") ENABLE;
+  ALTER TABLE "MEHDI"."M_COMMENT" ADD FOREIGN KEY ("ID_ETUDIANT")
+	  REFERENCES "MEHDI"."ETUDIANT" ("ID_ETUDIANT") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table MASTER
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."MASTER" ADD FOREIGN KEY ("ID_RESPONSABLE")
+	  REFERENCES "MEHDI"."RESPONSABLE" ("ID_RESPONSABLE") ENABLE;
+  ALTER TABLE "MEHDI"."MASTER" ADD FOREIGN KEY ("ID_CONDITION")
+	  REFERENCES "MEHDI"."CONDITION" ("ID_CONDITION") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table NOTIF
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."NOTIF" ADD CONSTRAINT "FK_NOTIF_ID_TAG" FOREIGN KEY ("ID_TAG")
+	  REFERENCES "MEHDI"."TAG" ("ID_TAG") ON DELETE SET NULL ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table PRESELECTION
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."PRESELECTION" ADD FOREIGN KEY ("ID_INSCRIPTION")
+	  REFERENCES "MEHDI"."INSCRIPTION" ("ID_INSCRIPTION") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table PUBLICATION
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."PUBLICATION" ADD FOREIGN KEY ("ID_MASTER")
+	  REFERENCES "MEHDI"."MASTER" ("ID_MASTER") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table RESPONSABLE
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."RESPONSABLE" ADD FOREIGN KEY ("ID_FACULTE")
+	  REFERENCES "MEHDI"."FACULTE" ("ID_FACULTE") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table TMP_CONVOCATION
+--------------------------------------------------------
+
+  ALTER TABLE "MEHDI"."TMP_CONVOCATION" ADD FOREIGN KEY ("ID_INSCRIPTION")
+	  REFERENCES "MEHDI"."INSCRIPTION" ("ID_INSCRIPTION") ENABLE;
