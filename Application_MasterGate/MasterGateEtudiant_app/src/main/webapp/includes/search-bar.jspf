@@ -1,0 +1,172 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Bar</title>
+    <style>
+/*         body { */
+/*             font-family: Arial, sans-serif; */
+/*             background-color: #f5f5f5; */
+/*             display: flex; */
+/*             justify-content: center; */
+/*             align-items: center; */
+/*             height: 100vh; */
+/*             margin: 0; */
+/*         } */
+        .search-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+        }
+        .search-container form {
+            display: flex;
+            flex-direction: row;
+            gap: 1em;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+        }
+        .search-bar input[type="text"] {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .search-bar button {
+			padding: 10px 20px;
+			  background-color: white;
+			  color: black;
+			  border-radius: 4px;
+			  font-size: 16px;
+			  cursor: pointer;
+			  border: 1px solid #080808;
+			  border-radius: 5px;
+			  transition: all ease 200ms;
+        }
+        .search-bar button:hover {
+            background-color: #080808;
+            color: white;
+        }
+        .filter-sort {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: center;
+        }
+        .filter-div, .sort-div{
+            position: relative;
+            display: flex;
+        }
+        .filter-div select , .sort-div select{
+            padding: .5em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 1000;
+
+            background-color: white;
+        }
+        .filter-div select{
+            left: 0;
+        }
+        .filter-sort-icon{
+            display: block;
+            padding: 8px 16px;
+            border-radius: 35px;
+        }
+        .filter-sort-icon:hover{
+            background-color: #f4f4f4;
+            cursor: pointer;
+        }
+        .hidden{
+            display: none;
+        }
+        .search-query {
+    font-style: italic;
+    color: #333;
+    border-left: 4px solid #ccc;
+    padding-left: 16px;
+    margin-left: 10px;
+    display: inline-block;
+    margin-top: .5em;
+}
+        .profile-div img, .profile-pop-info img{
+        	object-fit: cover;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="search-container">
+        <form method="GET" action="search">
+            <div class="filter-sort">
+
+                <div class="filter-div">
+<!--                     <svg id="filter-icon" class="filter-icon filter-sort-icon"   -->
+<!--                     xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"   -->
+<!--                     viewBox="0 0 24 24"  fill="none"  stroke="currentColor"   -->
+<!--                     stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"   -->
+<!--                     class="icon icon-tabler icons-tabler-outline icon-tabler-filter"> -->
+<!--                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/> -->
+<!--                     <path d="M4 4h16v2.172a2 2 0 0 1 -.586 1.414l-4.414 4.414v7l-6 2v-8.5l-4.48 -4.928a2 2 0 0 1 -.52 -1.345v-2.227z" /> -->
+<!--                     </svg> -->
+                    <img src="img/icons/filter.svg" id="filter-icon" class="filter-icon filter-sort-icon "  > 
+                    <select name="filter" id="filter" class="">
+
+                        <option value="masters" 
+                        <%--if the searched filter is masters, then it should be selected by default --%>
+		                   <c:if test="${param.filter == 'masters' }">
+		                     <c:out value="selected"></c:out>
+		                   </c:if>                        
+                        >Masters</option>
+                        
+                        <option value="facs"
+                        <%--if the searched filter is facs, then it should be selected by default --%>
+		                   <c:if test="${param.filter == 'facs' }">
+		                     <c:out value="selected"></c:out>
+		                   </c:if>    
+                        >Facultés</option>
+<!--                         <option value="uni">Universités</option> -->
+                    </select>
+                </div>
+
+<!--                 <div class="sort-div"> -->
+<!--                     <svg id="sort-icon" class="sort-icon filter-sort-icon" xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-sort-descending"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l9 0" /><path d="M4 12l7 0" /><path d="M4 18l7 0" /><path d="M15 15l3 3l3 -3" /><path d="M18 6l0 12" /></svg> -->
+<!--                     <select name="sort" id="sort" class="hidden"> -->
+<!--                         <option value="default">Sort by</option> -->
+<!--                         <option value="option1"></option> -->
+<!--                         <option value="option2">Option 2</option> -->
+<!--                         <option value="option3">Option 3</option> -->
+<!--                     </select> -->
+<!--                 </div> -->
+            </div>
+            <div class="search-bar">
+                <input type="text" name="search" placeholder="Search...">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("filter-icon").addEventListener("click", ()=>{
+            document.getElementById("filter").classList.toggle("hidden");
+        })
+        document.getElementById("sort-icon").addEventListener("click", ()=>{
+            document.getElementById("sort").classList.toggle("hidden");
+        })
+    </script>
+</body>
+</html>

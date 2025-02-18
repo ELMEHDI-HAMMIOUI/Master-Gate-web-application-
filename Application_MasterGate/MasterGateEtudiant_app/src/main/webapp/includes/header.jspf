@@ -1,0 +1,166 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="master.dao.factory.OraFactory"  %>
+<head>
+	<link rel="icon" href="${pageContext.request.contextPath}/img/icons/iconeMG.svg" type="image/x-icon">
+<style>
+	.notification-bell {
+		position: relative;
+		display: inline-block;
+		font-size: 24px;
+	/* 	width: 28px; */	  
+		cursor: pointer;
+		border-radius: 14px;
+		padding: 8px;
+	    }
+	.notification-bell:hover{
+		background-color: #9993;
+	 }
+	 .notification-bell img{
+	 	display: flex;
+	 	margin: auto;
+	 	 width: 28px;
+	 }
+	.notification-bell .badge {
+	/*   right: -7px; */
+	  background-color: red;
+	  color: white;
+	  position: absolute;
+	  top: 4px;
+	/*   left: 12px; */
+	  display: inline-block;
+	  padding: 0 4px;
+	/*   min-width: 8px; */
+	/*   max-width: 18px; */
+	  height: 16px;
+	  border-radius: 22px;
+	  text-align: center;
+	  font-family: "Lato","Arial",sans-serif;
+	  font-size: 12px;
+	  font-weight: 400;
+	  line-height: 16px;
+	  right: 0;
+	  width: 20px;
+	 
+	 .nav{
+	        	z-index: 3000;
+	        }
+	        
+	        .profile-div img, .profile-pop-info img{
+	        	object-fit: cover;
+	        }
+	        #search-inpt:hover{
+	        	box-shadow: none;
+	        	-webkit-box-shadow: none;
+	        }
+	        #search-inpt:selection{
+	        	box-shadow: none;
+	        	-webkit-box-shadow: none;
+	        }
+</style>
+	</head>
+    <nav class="nav">
+        <section class="nav-l">
+            <div class="icon-div">
+                <a href="home" class="icon-link">
+                    <img src="${pageContext.request.contextPath}/img/icons/MG.svg" alt="icon">
+                </a>
+            </div>
+            <ul class="links">
+                <a href="home" class="link" >
+                    Home
+                </a>
+                <a href="Masters?type=all" class="link" >
+                    Masters
+                </a>
+                <a href="facultes" class="link" >
+                    Facultes
+                </a>
+                <a href="faq.jsp" class="link">
+                    FAQ
+                </a>
+                <a href="about" class="link" >
+                    About Us
+                </a>
+            </ul>
+        </section>
+        <section class="nav-r">
+			<!--notification -->
+            <c:if test="${sessionScope.userId != null }">
+	            <a href="Notifications" class="notification-bell">
+	                <img src="${pageContext.request.contextPath}/img/icons/bell.svg" alt="bell">
+	                
+	                <%-- storing the notifications number  --%>
+	                <% 
+		                String token =(String) session.getAttribute("userId");
+		                int userId = OraFactory.getUserDao().getEtudiantIdFromToken(token);
+		                request.setAttribute("notifNum",OraFactory.getNotifDao().getNotReadedNotifNum( userId ) ); 
+	                
+	                %>
+	                <c:if test="${notifNum > 0}">
+		        		<span class="badge">
+		        			${notifNum }
+		        		</span> 
+	        		</c:if>
+	    		</a>
+    		</c:if>
+    		
+            <form class="search-div" method="GET" action="search" id="search-form">
+                <img src="${pageContext.request.contextPath}/img/icons/search.svg" alt="search-bar" class="search-icon">
+                <input type="text" name="search" id="search-inpt" class="search-inpt" placeholder="Search...">
+                <input type="hidden" name="filter" value="masters">
+            </form>
+            <!--the profile icon -->
+            <c:if test="${sessionScope.userId != null }">
+	            <section class="profile-wraper">
+	                <a href="Profile" class="profile-div ">
+	                    <img src="ImgDisplayer?etudiantId=${sessionScope.userId}"  alt="profile">
+	                </a>
+	                <div class="profile-pop pop">
+	                    <div class="profile-pop-info">
+	                        <img src="ImgDisplayer?etudiantId=${sessionScope.userId}" alt="profile">
+	                        <span class="profile-pop-name">${sessionScope.nom} ${sessionScope.prenom}</span>
+	                        <span class="profile-pop-email">${sessionScope.email}</span>
+	                    </div>
+	                    <div class="profile-pop-options">
+	                        <a href="Notifications">Notifications</a>
+	                        <a href="Mymasters">Mes Masters</a>
+	                    </div>
+	                    <a href="Signout" class="profile-pop-signout">Sign out</a>
+	                </div>
+	            </section>
+	        </c:if>
+	        
+			<c:if test="${sessionScope.userId == null }">
+            <!-- signup and signin -->
+	            <ul class="links auth-div">
+	                <a href="Signin" class="link">
+	                    Sign In
+	                </a>
+	                <a href="Signup" class="link custom-btn">
+	                    Sign Up
+	                </a>
+	            </ul>
+            </c:if>
+        </section>
+    </nav>
+
+
+
+<%@include file="warning.jspf" %>
+
+    <script>
+        document.querySelector(".profile-div").addEventListener("mouseleave",()=>{
+            document.querySelector(".profile-pop").classList.toggle("pop");
+        })
+        document.querySelector(".profile-div").addEventListener("mouseover",()=>{
+            document.querySelector(".profile-pop").classList.toggle("pop");
+        })
+        document.querySelector(".profile-pop").addEventListener("mouseover",()=>{
+            document.querySelector(".profile-pop").classList.remove("pop");
+        })
+        document.querySelector(".profile-pop").addEventListener("mouseleave",()=>{
+            document.querySelector(".profile-pop").classList.add("pop");
+        })
+    </script>
+    
+    

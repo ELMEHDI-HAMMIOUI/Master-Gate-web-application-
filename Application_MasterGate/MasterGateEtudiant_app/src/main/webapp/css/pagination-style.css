@@ -1,0 +1,88 @@
+@charset "UTF-8";
+/* pagination */
+
+    	.pagination{
+    	  align-items: center;
+		  display: flex;
+		  justify-content: center;
+		  font-size: 18px;
+		  padding: 2rem 1rem;
+		}
+		.input-pagenum{
+		  background-color: #fff;
+		  border: 1px solid #080808;
+		  font-size: 16px;
+		  height: 33px;
+		  margin: 8px;
+		  text-align: center;
+		  width: 36px;
+		  line-height: 1.15;
+		}
+		.total-pages-span{
+			padding-left: 5px;
+		}
+		
+		.page-link{
+		  font-size: 1rem;
+		  background-color: #fff;
+		  border: 1px solid #080808;
+		  border-radius: 5px;
+		  color: #080808;
+		  cursor: pointer;
+		  font-size: .875rem;
+		  height: 46px;
+		  width: 155px;
+		  align-items: center;
+		  display: flex;
+		  justify-content: center;
+		  outline: none;
+		  transition: all .3s ease;
+		  text-decoration: none;
+		  z-index: 1000;
+		  
+		}
+		.next-page-link{
+		  margin-left: 50px;
+		}
+		.prev-page-link{
+		  margin-right: 50px;
+
+		}
+
+		.page-link:hover{
+		  background-color: #080808;
+		  color: #fff;
+		  text-decoration: none;
+		}
+
+		.page-svg{
+			fill: #080808;
+		}
+		
+		.page-link:hover  .page-svg{
+			fill: #fff;
+		}
+  		.page-div-txt{
+  			margin: 0 6px;
+  		}
+
+  		.prev-svg{
+  			transform: rotate(180deg);
+  			margin-right: 6px;
+  		}
+  		.prev-link{
+  			margin-right: 50px;
+  		}
+  		
+  		.hidden{
+			display: none;
+		}
+  		.next-svg{
+  			margin-left: 6px;
+  		}
+  		.prev-link{
+  			margin-right: 50px;
+  		}
+        .profile-div img, .profile-pop-info img{
+        	object-fit: cover;
+        }

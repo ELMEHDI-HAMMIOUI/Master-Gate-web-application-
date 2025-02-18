@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*,*::after,*::before{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --pr-clr-l: #FFDF8A;
+    --scnd-clr-l: #FFEFCA; 
+    --black: #121211;
+    --black-75: rgba(18,18, 17, 0.75);
+    --black-50: rgba(18, 18, 17, 0.50);
+    --input-back: #FFF9EB;
+    --search-bar-back: white;
+}
+h1, h2, h3, h4, h5, h6{
+    color: var(--black);
+    line-height: 1.3;
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+}
+h1{
+    font-size: 61px;
+    font-weight: 500;
+}
+h2{
+    font-size: 48px;
+}
+h3{
+   font-size: 39px; 
+}
+
+body{
+    font-family: Lato, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--black);
+
+}
+input{
+    font-family: Lato, sans-serif;
+}
+/* .btn{
+    padding: 8px 16px;
+    border-radius: 99999;
+    font-size: 16px;
+} */
+.btn:hover{
+    cursor: pointer;
+}
+
+/* hide arrows from the input number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.hidden{
+    display: none;
+}

@@ -1,0 +1,97 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+
+    <!-- tour import -->
+    <script src="https://unpkg.com/@sjmc11/tourguidejs/dist/tour.js" crossorigin="anonymous" referrerpolicy="no-referrer" type="module"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@sjmc11/tourguidejs/dist/css/tour.min.css">
+
+	<!-- tour-style -->
+	<style>
+	    .tg-backdrop{
+	  		pointer-events:none!important;
+		}
+	</style>
+	
+	<!-- tour button trigger style -->
+	<style>
+	    .tour-btn{
+	  		cursor: pointer;
+	  		display: flex;
+	  		padding: .5em;
+	  		align-items: center;
+	  		position: fixed;
+	  		bottom: 2em;
+	  		right: 2em;
+	  		border-radius: 50%;
+	  		border: none;
+	  		background: none;
+		}
+		.tour-btn:hover {
+			background: antiquewhite !important;
+		}
+		.tour-btn img{
+			width: 32px;
+		}
+		
+		
+		/* tooltip things */
+        .tooltip{
+            /*position: relative;*/
+        }
+        .tooltip::before {
+    		content: attr(data-tooltip);
+            border-radius: 14px;
+            background-color: black; /* rgb(44, 43, 43)*/
+            color: white;
+            font-family: Lato, sans-serif;
+            font-weight: 600;
+            padding: 8px 16px;
+            width: 277px;
+            position: absolute;
+            z-index: 2;
+			bottom: 0;
+	     	right: 4em;
+  			top: unset;
+  			left: unset;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            font-size: .83rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            line-height: 1.5;
+        }
+
+	    /* show tooltip on hover */
+	    .tooltip:hover::before {
+	        opacity: 1;
+	        visibility: visible;
+	    }
+    
+	</style>
+	
+
+	
+	<!-- tour button trigger -->
+	<button id="tour-btn" class="tour-btn tooltip" data-tooltip="Optimisez votre expérience de navigation en faisant une visite guidée de la page.">
+		<img src="${pageContext.request.contextPath}/img/icons/help.svg" alt="help">
+	</button>
+
+	<!-- tour script -->
+	<script>
+	    // required tour declarations 
+	    let tg = null;
+	    document.addEventListener("DOMContentLoaded", ()=>{
+	    	//required
+	        tg = new tourguide.TourGuideClient({exitOnClickOutside: true})
+	    	//start the tour when the tour-btn is clicked
+	        document.getElementById("tour-btn").addEventListener("click", ()=>{
+	        	tg.start();
+	        })
+
+	    })
+	
+	</script>

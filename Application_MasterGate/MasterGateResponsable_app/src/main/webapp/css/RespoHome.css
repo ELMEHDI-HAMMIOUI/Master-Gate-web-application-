@@ -1,0 +1,265 @@
+*,*::after,*::before{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --pr-clr-l: #FFDF8A;
+    --scnd-clr-l: #FFEFCA; 
+    --black: #121211;
+    --black-75: rgba(18,18, 17, 0.75);
+    --black-50: rgba(18, 18, 17, 0.50);
+    --input-back: #FFF9EB;
+    --search-bar-back: white;
+    --thrd-clr-l: #272F58;
+    --frd-clr-l: #B97030; 
+    --grey:#E1E1E1;
+}
+body{
+    font-size: 16px;
+}
+.t-container{
+    display: flex;
+    justify-content: start;
+    gap: 32px;
+    padding: 1em;
+}
+.t-side{
+    width: 0;
+    flex-shrink: 0;
+}
+.t-main{
+    display: flex;
+    gap:2em;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.master-card{
+	
+    border-radius: 10px;
+    border: 1px solid var(--grey, #E1E1E1);
+    padding: 1em;
+    max-width: 400px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    
+    
+    
+}
+/* master card head */
+.master-card-head{
+    transition: all ease 300ms;
+    position: relative;
+}
+.specialite{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color:var(--frd-clr-l);
+    font-size:1.2rem;
+    font-family: Lato;
+    font-weight: 400;
+}/*font-size:  .75rem;/*12px*/
+.specialite:hover{
+    color: #955b28;
+}
+.fac{
+    transition: all ease 300ms;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    justify-content: start;
+    max-width: 100%;
+}
+.fac-logo{
+    transition: all ease 300ms;
+    width: 68px;
+    padding: .2em;
+    border-radius: 5px;
+    border: 0.5px solid var(--grey, #E1E1E1);
+    img{
+        transition: all ease 300ms;
+        width: 100%;
+    }
+}
+.fac-logo:hover{
+    img{
+        scale: .95;
+    }
+}
+.fac-nom{
+    color: var(--thrd-clr-l,#272F58);
+    font-family: Lato;
+    font-size: 0.688rem;/*11px*/
+    font-weight: 600;
+    line-height: 1.5;
+    text-transform: uppercase; 
+    letter-spacing: .5px;  
+}
+.fac-nom:hover{
+    color:#435299;
+}
+/* master body */
+[class^="master-card-body-title"] {
+    color: var(--black);
+    font-family: Montserrat;
+    font-size: 1.4rem;/*32px*/
+    font-weight: 400;
+    line-height: normal;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    text-transform: capitalize;
+}
+/* master card footer */
+.master-card-footer{
+    display: flex;
+    gap: 1em;
+    align-items: stretch;
+    justify-content: flex-end;
+    position: relative;
+    margin-top: 25px;
+    height: 40px;	
+}
+
+
+.master-card-footer-meta{
+    display: flex;
+    align-items: center;
+    gap:.5em;
+}
+.master-card-footer-ville-div, .master-card-footer-date-div{
+    display: flex;
+    gap: 0.25em;
+    align-items: center;
+}
+.master-card-footer-ville_txt ,.master-card-footer-date_txt{
+    color: var(--thrd-clr-l,#272F58);
+    font-family: Lato;
+    font-size: 0.625rem;
+    font-weight: 400;
+    line-height: normal;
+}
+.consulter-master{
+    transition: all ease 300ms;
+    font-family: Lato;
+    font-size: revert-layer;
+    font-weight: 600;
+    line-height: normal;
+    /* background-color: var(); */
+    color: black;
+    padding: .5em 1em;
+    border-radius: 5px;
+    /* border: 1px solid var(--grey);
+    border-radius: 14px;
+    padding: .3em 1em; */
+    border: none;
+    /* border-bottom: 2.5px dotted var(--frd-clr-l); */
+    position: absolute;
+    left: 0;
+    /* box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.25); */
+}
+a{
+    text-decoration: none;
+}
+.consulter-master:hover{
+    border-color: var(--thrd-clr-l);
+    color:var(--frd-clr-l);
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1100px) {
+    .master-card{
+        min-width: 220px;
+        flex-grow: 1;
+    }
+    .specialite{
+        font-size: .6rem;
+    }
+    [class^="master-card-body-title"] {
+        font-size: 1.5rem;
+    }
+    .master-card-footer-meta{
+        flex-direction: column;
+        align-items : start;
+    }
+    .fac{
+        max-width: 90%;
+    }
+    .fac-nom{
+        font-size: 0.5rem;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .t-container{
+        flex-direction: column;
+    }
+    .t-main{
+        gap: 1.5em;
+    }
+    .master-card{
+        min-width: auto;
+        /* width: 80px; */
+        padding: .5em;
+    }
+    .master-card-footer{
+        flex-direction: column;
+    }
+    .consulter-master{
+        position: inherit;
+    }
+    [class^="master-card-body-title"] {
+        font-size: .8rem;
+    }
+    .master-card-head{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .5em;
+        width: 100%;
+    }
+    .fac{
+        align-items: center;
+    }
+    .fac-nom{
+        text-align: center;
+        display: none;
+    }
+    .specialite{
+        position: inherit;
+        text-align: center;
+        font-size: .52rem;
+    }
+    .master-card-body-title{
+        text-align: center;
+    }
+    .master-card-footer-ville_txt, .master-card-footer-date_txt{
+        font-size: .52rem;
+    }
+    .master-card-footer-ville_icon,.master-card-footer-date_icon{
+        width: 8px;
+        height: 8px;
+    }
+    .master-card-footer{
+        gap: .5em;
+        margin-top: .5em;
+    }
+    .consulter-master{
+        font-size: .6rem;
+    }
+    .master-card-footer-meta{
+        gap: .3em;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .t-main{
+        gap: 1em;
+    }
+    .fac-logo{
+        display: none;
+    }
+}

@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #f2f2f2;
+    padding: 0;
+    margin: 0;
+}
+
+.dataTables_wrapper {
+    margin-top: 20px;
+}
+
+.data-th {
+    background-color: #444444;
+    color: #F7CE68;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 10px;
+}
+
+table.dataTable tbody tr {
+    transition: background-color 0.3s;
+}
+
+table.dataTable tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+table.dataTable tbody td {
+    text-align: left;
+    padding: 10px;
+}
+
+table.dataTable tfoot {
+    background-color: #444444;
+    color: #F7CE68;
+}
+
+table.dataTable tfoot tr {
+    font-size: 14px;
+}
+
+table.dataTable tfoot td {
+    padding: 10px;
+    text-align: left;
+    border-top: 2px solid #727272;
+}
+
+table.dataTable tfoot td br {
+    line-height: 1.5;
+}
+
+table.dataTable tfoot td span {
+    font-style: italic;
+    color: #F7CE68;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: auto; /* Ensure table auto adjusts column widths */
+}
+
+th, td {
+    border: 1px solid #444444;
+    padding: 10px;
+}
+
+th {
+    background-color: #f7ce68a8;
+    font-family: system-ui;
+    font-weight: 600;
+}
+
+td {
+    background-color: #FFF;
+}
+
+a {
+    text-decoration: none;
+    color: #444444;
+}
+
+.highlighted-row {
+    border: 3px solid #f7ce68;
+    border-radius: 5px;
+}
+
+.container {
+    text-align: center;
+    margin: 20px 50px;
+}
+
+.header {
+    background-color: #ffe4a0;
+    color: #444444;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    margin-bottom: 44px;
+}
+.td-dossier{
+	background-color: #f0f0f0;
+}
+.th-dossier{
+	width:162px;
+    background-color: #444444;
+    font-size: 15px;
+
+    padding: 10px;
+    text-align: center;
+    color:#F7CE68;
+	
+}
+.header-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-main-title {
+    font-size: 24px;
+}
+
+.header-sub-title {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.header-button {
+    background-color: #444444;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.header-button:hover {
+    background-color: #333333;
+}
+
+.styled-input {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.score-cell {
+    width: 50px !important;
+}
+
+.td-delete {
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: all 0.1s;
+    vertical-align: middle;
+    width: fit-content;
+    white-space: nowrap; /* Prevent line breaks */
+    width:2px;
+}
+
+.bottom-side {
+	display: flex;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+}
+
+.btn-submit {
+    margin-bottom: 7px;
+    font-size: 22px;
+    color: white;
+    padding: 7px 20px;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    max-width: 240px;
+    font-family: Lato, sans-serif;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+.btn-submit span {
+  display: block; /* Ensure the span takes up full width */
+  font-size: 12px; /* Adjust font size as needed */
+  color: #ffffff; /* Text color */
+  margin-top: 5px; /* Add space between the button text and the span */
+}
+.delete-column{
+	width:2px;
+    background-color: #444444;
+    font-size: 15px;
+    padding: 10px;
+    text-align: center;
+}
+.delete-btn {
+    /* Basic styling */
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+
+    /* Colors */
+    background-color: #e74c3c; /* Red color */
+    color: white;
+
+    /* Box shadow for depth */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+    /* Transition for smooth hover effects */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b; /* Darker red on hover */
+}
+
+.delete-btn:active {
+    background-color: #a93226; /* Even darker red on click */
+    transform: translateY(2px); /* Pressed down effect */
+}
+
+.icon-header {
+    width: fit-content;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.delete-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.dossier-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+/* Button Styling */
+.dossier-btn {
+	display: flex;
+    align-items: center;
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon Styling */
+.dossier-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+/* Hover Effect */
+.dossier-btn:hover {
+    background-color: #e67e22; /* Darker orange color */
+    transform: translateY(-2px);
+}
+
+/* Focus Effect */
+.dossier-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.5); /* Orange shadow */
+}
+
+/* Active Effect */
+.dossier-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
